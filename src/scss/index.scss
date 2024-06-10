@@ -1,0 +1,425 @@
+@import 'variables';  // Assuming _variables.scss is in the same directory
+
+*{
+  border: 1px solid red; // Will show the boundary of each element
+}
+
+//index.scss
+body {
+  background-color: $background-color;
+  color: $text;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  // overflow: hidden; // Prevents any scrolling
+}
+
+//navbar
+.navbar {
+  background-color: $background-color;
+  color: $text;
+  width: 100%;
+  padding: 1em;
+  height: 7em;
+  $bulma-navbar-item-img-max-height: 2.5em;
+}
+
+.navbar {
+  background-color: $background-color;
+  color: $text;
+  width: 100%;
+  padding: 1em;
+  height: 6em;  // Specifies the height of the navbar
+}
+
+.navbar-brand {
+  height: 100%;  // Ensures the navbar-brand container takes full height of the navbar
+  display: flex;
+  align-items: center;  // Centers the logo vertically within the navbar
+  width: 20vw;
+  min-width: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item{
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#nav-logo {
+  min-height:30px;
+  height: auto;  // Adjust this percentage as needed to scale the logo properly within the navbar
+  width: auto;  // Maintains the aspect ratio of the image
+  max-height: 3rem;
+}
+
+//text gradient
+.gradient-text {
+  background-image: linear-gradient(to right, #F9078E, #0BF5F1);
+  width: fit-content;  // Adjust based on desired width
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+//gradient colors
+$gradient-start: #F9078E; // Start color of the gradient
+$gradient-end: #0BF5F1; // End color of the gradient
+
+//gradient button
+.btn {
+  padding: 5px 20px;
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  background: linear-gradient(to right, $gradient-start, $gradient-end);
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    border-radius: 20px;
+    background-color: $background-color;
+    z-index: -1;
+    transition: 200ms;
+  }
+
+  &::after {
+    content: attr(data);
+    font-size: 16px;
+    background: linear-gradient(to left, $gradient-start, $gradient-end);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: 200ms;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0.5; // Adjusted to correct CSS value for opacity
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &::after {
+      color: white;
+    }
+  }
+}
+
+//hero title
+.hero-title {
+  font-family: 'GreycliffCF', sans-serif;
+  font-size: calc(12px + 5vw); //calc(12px + 1.5vw)
+  font-weight: 400;
+  text-align: center;
+  line-height: 1em;
+  z-index: 2;
+  position: relative;
+
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligns items to the start of the container vertically */
+  align-items: center; /* Centers items horizontally */
+  height: 100%; /* Ensures the div takes full height of the parent, adjust if necessary */
+}
+
+//splashscreen animations
+
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background-color: #282626; // Initial solid background for logo
+}
+
+.logo-container img {
+  transition: opacity 2s ease;  // Smooth transition for opacity changes
+  opacity: 0;                   // Start with the logo invisible
+  width: 200px;
+  height: auto;
+}
+
+
+.gradient-screen {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100vw;
+  height: 100;
+  display: none; // Initially hidden
+  flex-direction: column;
+  background-color: transparent; // Ensure gradient screen is transparent
+  translate: translateY(100%); // Start off-screen
+}
+
+
+
+* {
+  box-sizing: border-box; // Ensures padding and border are included in the width/height
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh; // Ensure the body and html are also taking the full viewport height
+  // overflow: hidden; // Prevent scrolling which can disrupt full-height displays
+  background-color:$background-color;
+}
+
+#splash-screen, .gradient-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw; // Full viewport width
+  height: 100vh; // Full viewport height
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden; // Prevents any overflow content from being visible
+}
+
+.gradient-part {
+  flex: 1; // Ensures each part stretches to fill the space evenly
+  width: 100%; // Full width of the container
+  background: linear-gradient(to right, #F9078E, #0BF5F1);
+  opacity: 0; // Initially invisible
+  transform: translateY(0%); // Start correctly positioned, no vertical offset
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+#hero-img{
+  width: 97.5%;
+  height: 60vh;
+  object-fit: cover; /* Ensure the image covers the entire area without distortion */
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  transform: translateY(-7%);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: calc(12px + 7vw);
+  }
+
+  #hero-img {
+    object-fit: contain; /* Changes from cover to contain to ensure the whole image is visible */
+    width: 100vw;
+    height: auto;
+    padding: 2.5em 0 0em 0; //padding: 2em 0 ;
+    scale: 1.2;
+  }
+
+  .hero-body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .center-div{
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero{
+    margin: 0;
+    padding: 0;
+    $hero-body-padding-small:0;
+    $hero-body-padding:0;
+  }
+}
+
+.full-height {
+  height: 100vh; // Ensures the element takes up the full viewport height
+}
+
+.scroll-snap{
+  scroll-snap-align: center; // Ensures the element snaps to the center of the viewport when scrolling
+  scroll-snap-type: y mandatory; // Ensures the element snaps to the center of the viewport when scrolling
+}
+
+.sub-heading {
+  font-size: calc(12px + 1vw);
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.sub-heading-border{
+  background-color: $gradient-start;
+}
+
+//modal 
+.text-container {
+  margin: 20px;
+  // .text-content {
+  //   // display: block; // Default to display block
+  // }
+
+  .text-button {
+    // display: none; // Default to display none
+    // background-color: #007BFF;
+    // color: white;
+    // border: none;
+    // padding: 10px 20px;
+    // border-radius: 5px;
+    // cursor: pointer;
+    margin-left: 0.5em;
+  }
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  // width: 90%;
+  // max-width: 600px;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-color;
+}
+
+.modal-content {
+  background-color: $background-color;
+  width:  85vw;  /* Adjusts width to fit within the modal */
+  max-width: 600px; /* Optional, for better readability on larger screens */
+  max-height: 100%; /* Ensures content does not exceed the modal */
+  // overflow: auto; /* Allows scrolling within the modal content if needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distributes space around items */
+  text-align: left;
+  margin: 2em auto;
+  padding: auto 3em;
+  font-size: calc(13px + 1vw);
+}
+
+//center close button
+.center-btn{
+  width: auto;
+  margin: auto;
+}
+
+.origin-text{
+  margin: auto;
+  width: 95%;
+}
+
+// Use for larger screens
+@media (min-width: 768px) {
+  .text-content {
+    display: block;
+  }
+  .text-button {
+    display: none;
+  }
+  .origin-text{
+    display: none;
+  }
+}
+
+// Use for smaller screens
+@media (max-width: 767px) {
+  .text-content {
+    display: none;
+  }
+  .text-button {
+    display: block;
+  }
+  .origin-text{
+    display: block;
+  }
+}
+
+// .about-us-container{
+//   display: flex;
+// }
+
+// .about-us-column{
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .about-us-row{
+//   display: flex;
+//   flex-direction: row;
+// }
+
+.text-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content; // Ensures the div takes full viewport height
+}
+
+.about-us-container {
+  display: flex;
+  width: 100%; // Adjust this as necessary
+  max-width: 1200px; // Ensures the container doesn't get too wide on large screens
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.titles-container {
+  flex: 1; // Takes up 1 part of the container
+  padding-right: 20px; // Adds space between the titles and the description
+}
+
+.description-container {
+  flex: 2; // Takes up 2 parts of the container, making it larger
+}
+
+h2, h3, p {
+  margin: 0; // Removes default margins
+  padding: 10px 0; // Adds vertical padding for spacing
+}
+
+h2 {
+  font-size: 24px; // Example size, adjust as needed
+}
+
+h3 {
+  font-size: 18px; // Example size, adjust as needed
+}
+
+p {
+  font-size: 16px; // Text size for paragraph
+  line-height: 1.5; // Line height for better readability
+}

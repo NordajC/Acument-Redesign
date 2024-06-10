@@ -1,0 +1,113 @@
+//_variables.scss
+$background-color: #282626;
+$text: #FFFFFF;
+$bulma-navbar-item-img-max-height: 2.5rem;
+
+@import '../../node_modules/bulma/bulma';
+
+
+//font GreycliffCF
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('../assets/font/Greycliff_Fonts/Greycliff_Fonts/greycliffcf-bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('../assets/font/Greycliff_Fonts/Greycliff_Fonts/greycliffcf-demibold.otf') format('opentype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('../assets/font/Greycliff_Fonts/Greycliff_Fonts/greycliffcf-extrabold.otf') format('opentype');
+  font-weight: 800; // Extrabold
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('../assets/font/Greycliff_Fonts/Greycliff_Fonts/greycliffcf-heavy.otf') format('opentype');
+  font-weight: 900; // Heavy
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('../assets/font/Greycliff_Fonts/Greycliff_Fonts/greycliffcf-light.otf') format('opentype');
+  font-weight: 300; // Light
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('../assets/font/Greycliff_Fonts/Greycliff_Fonts/greycliffcf-medium.otf') format('opentype');
+  font-weight: 500; // Medium
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('../assets/font/Greycliff_Fonts/Greycliff_Fonts/greycliffcf-regular.otf') format('opentype');
+  font-weight: normal; // 400
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('../assets/font/Greycliff_Fonts/Greycliff_Fonts/greycliffcf-thin.otf') format('opentype');
+  font-weight: 100; // Thin
+  font-style: normal;
+}
+
+// @media (max-width: 1024px) { /* Adjust this media query based on your specific break-point */
+//   .navbar-menu {
+//     width: 100%; /* Ensures that the menu uses full width */
+//     justify-content: space-between; /* This will align navbar-brand to the left and navbar-end to the right */
+//   }
+//   .navbar {
+//     flex-wrap: nowrap; /* Prevents the navbar from wrapping */
+//   }
+//   .navbar-end {
+//     align-self: center; /* Aligns the button vertically */
+//   }
+// }
+
+*{
+  font-family: 'GreycliffCF', sans-serif;
+}
+
+.hero-body{
+  background-color: $background-color;
+  color: $text;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 6em); /* Adjust height based on the header height */
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  $bulma-navbar-item-img-max-height: 2.5em;
+}
+
+.navbar-end {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1; /* Makes .navbar-end grow and take up any remaining space */
+}
+
+@media (max-width: 768px) {
+  .hero{
+    $hero-body-padding-small:0;
+    $hero-body-padding:0;
+  }
+}
+
+
+
+

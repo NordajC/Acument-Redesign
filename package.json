@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "bulma": "^1.0.0",
+    "sass": "^1.77.2"
+  },
+  "scripts": {
+    "build-bulma": "sass --load-path=node_modules my-bulma-project.scss my-bulma-project.css",
+    "start": "npm run build-bulma -- --watch"
+  }
+}
