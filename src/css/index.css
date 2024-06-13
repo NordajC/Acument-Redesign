@@ -23671,7 +23671,7 @@ body, html {
 
 .origin-text {
   margin: auto;
-  width: 95%;
+  width: 90%;
 }
 
 @media (min-width: 768px) {
@@ -23684,6 +23684,9 @@ body, html {
   .origin-text {
     display: none;
   }
+  .text-container {
+    display: block;
+  }
 }
 @media (max-width: 767px) {
   .text-content {
@@ -23691,9 +23694,14 @@ body, html {
   }
   .text-button {
     display: block;
+    width: fit-content;
+    margin-left: 1.5em;
   }
   .origin-text {
     display: block;
+  }
+  .text-container {
+    display: none;
   }
 }
 .text-content {
@@ -23707,7 +23715,7 @@ body, html {
 .about-us-container {
   display: flex;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1450px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -23723,20 +23731,117 @@ body, html {
 
 h2, h3, p {
   margin: 0;
-  padding: 10px 0;
+  padding: 0px 0;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: calc(18px + 1vw);
 }
 
 h3 {
-  font-size: 18px;
+  font-size: calc(16px + 1vw);
 }
 
 p {
-  font-size: 16px;
+  font-size: calc(14px + 0.5vw);
   line-height: 1.5;
+}
+
+.semi-bold {
+  font-weight: 500;
+}
+
+.left-border {
+  position: relative;
+}
+.left-border::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #F9078E, #0BF5F1);
+  border-radius: 20px;
+}
+.left-border h2 {
+  margin: 0;
+  padding-left: 10px;
+}
+
+.value-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  min-height: 230px;
+  text-align: center;
+}
+.value-box p {
+  font-size: 1.1rem;
+}
+.value-box .value-text {
+  margin: auto;
+  width: 100%;
+}
+.value-box .value-title {
+  position: relative;
+  transform: translateY(1em);
+  overflow: visible;
+}
+
+.full-width {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.service-tile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  text-align: center;
+}
+.service-tile img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.service-tile div {
+  padding: 20px;
+  color: #fff;
+  width: 100%;
+}
+.service-tile div h2 {
+  color: #f0f0f0;
+  font-size: 24px;
+}
+.service-tile div p {
+  margin: 20px 0;
+  font-size: 16px;
+}
+.service-tile div a {
+  margin-top: 20px;
+}
+.service-tile.reverse {
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 769px) {
+  .service-tile {
+    flex-direction: row;
+    align-items: center;
+  }
+  .service-tile img {
+    width: 50%;
+  }
+  .service-tile.reverse {
+    flex-direction: row-reverse;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -284,6 +284,7 @@ body, html {
 //modal 
 .text-container {
   margin: 20px;
+
   // .text-content {
   //   // display: block; // Default to display block
   // }
@@ -338,7 +339,7 @@ body, html {
 
 .origin-text{
   margin: auto;
-  width: 95%;
+  width: 90%;
 }
 
 // Use for larger screens
@@ -352,6 +353,9 @@ body, html {
   .origin-text{
     display: none;
   }
+  .text-container{
+    display: block;
+  }
 }
 
 // Use for smaller screens
@@ -361,25 +365,16 @@ body, html {
   }
   .text-button {
     display: block;
+    width: fit-content;
+    margin-left: 1.5em;
   }
   .origin-text{
     display: block;
   }
+  .text-container{
+    display: none;
+  }
 }
-
-// .about-us-container{
-//   display: flex;
-// }
-
-// .about-us-column{
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .about-us-row{
-//   display: flex;
-//   flex-direction: row;
-// }
 
 .text-content {
   display: flex;
@@ -392,7 +387,7 @@ body, html {
 .about-us-container {
   display: flex;
   width: 100%; // Adjust this as necessary
-  max-width: 1200px; // Ensures the container doesn't get too wide on large screens
+  max-width: 1450px; // Ensures the container doesn't get too wide on large screens
   padding: 20px;
   box-sizing: border-box;
 }
@@ -408,18 +403,151 @@ body, html {
 
 h2, h3, p {
   margin: 0; // Removes default margins
-  padding: 10px 0; // Adds vertical padding for spacing
+  padding: 0px 0; // Adds vertical padding for spacing
 }
 
 h2 {
-  font-size: 24px; // Example size, adjust as needed
+  font-size: calc(18px + 1vw); // Example size, adjust as needed
 }
 
 h3 {
-  font-size: 18px; // Example size, adjust as needed
+  font-size: calc(16px + 1vw); // Example size, adjust as needed
 }
 
 p {
-  font-size: 16px; // Text size for paragraph
+  font-size: calc(14px + 0.5vw); // Text size for paragraph
   line-height: 1.5; // Line height for better readability
 }
+
+.semi-bold{
+  font-weight: 500;
+}
+
+.left-border {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px; // Width of the border
+    background: linear-gradient(to bottom, $gradient-start, $gradient-end); 
+    border-radius: 20px;
+  }
+
+  h2 {
+    margin: 0;
+    padding-left: 10px; // Adjust if needed to provide space for the pseudo-element
+  }
+}
+
+// .value-box {
+//   color: white; // Ensuring text color is white for readability
+//   min-height: 225px; // Adjust height based on content size
+
+//   p {
+//       font-size: 1rem; // Standard font size
+//   }
+
+//   .value-text {
+//       text-align: center;
+//       width: 100%; // Ensures the text centering takes into account the full width
+//       margin: auto;
+//   }
+// }
+ 
+
+.value-box {
+  display: flex; // Making the value box a flex container
+  flex-direction: column; // Arranging children vertically
+  justify-content: center; // Centering children vertically within the container
+  align-items: center; // Centering children horizontally
+  color: white; // Ensuring text color is white for readability
+  min-height: 230px; // Adjust height based on content size
+  text-align: center; // Centering text horizontally, applied globally here for simplicity
+
+  p {
+      font-size: 1.1rem;  // Standard font size
+  }
+
+  .value-text {
+      margin: auto; // Auto margins can help further center content if needed
+      width: 100%; // Ensures the text centering takes into account the full width
+  }
+
+  .value-title{
+    position: relative;
+    transform:translateY(1em);
+    overflow: visible;
+    
+  }
+}
+
+.full-width{
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+
+//services section
+.service-tile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  text-align: center;
+
+  img {
+      width: 100%; // Full width on mobile
+      height: auto;
+      max-height: 300px; // Keeps image height uniform
+      object-fit: cover; // Ensures the image covers the area without distorting aspect ratio
+      border-radius: 10px; // Rounded corners as shown in your image
+  }
+
+  div {
+      padding: 20px;
+      color: #fff;
+      // background-color: rgba(0,0,0,0.5);
+      width: 100%; // Full width to match image on mobile
+
+      h2 {
+          color: #f0f0f0;
+          font-size: 24px; // Smaller font size for mobile
+      }
+
+      p {
+          margin: 20px 0;
+          font-size: 16px; // Smaller text size for better readability on mobile
+      }
+
+      a {
+          margin-top: 20px; // More space around the button for easier tapping
+      }
+  }
+
+  &.reverse {
+      flex-direction: column-reverse; // Maintain top image and bottom text order on mobile
+  }
+}
+
+// Media query for larger screens
+@media (min-width: 769px) {
+  .service-tile {
+      flex-direction: row;
+      align-items: center;
+
+      img {
+          width: 50%; // Adjust based on your layout needs on desktop
+      }
+
+      &.reverse {
+          flex-direction: row-reverse;
+      }
+  }
+}
+
+
