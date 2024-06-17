@@ -4,7 +4,14 @@
     "sass": "^1.77.2"
   },
   "scripts": {
-    "build-bulma": "sass --load-path=node_modules my-bulma-project.scss my-bulma-project.css",
-    "start": "npm run build-bulma -- --watch"
+    "build-css": "sass src/scss/:src/css/ --load-path=node_modules",
+    "prepare-directories": "npx mkdirp src/public/css",
+    "copy-assets": "npx ncp src/css src/public/css && npx ncp src/html src/public",
+    "build": "npm run build-css && npm run prepare-directories && npm run copy-assets",
+    "start": "npm run build -- --watch"
+  },
+  "devDependencies": {
+    "mkdirp": "^3.0.1",
+    "ncp": "^2.0.0"
   }
 }
