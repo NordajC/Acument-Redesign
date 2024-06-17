@@ -23381,10 +23381,6 @@ has-background-danger.is-hoverable:active {
   flex-grow: 1; /* Makes .navbar-end grow and take up any remaining space */
 }
 
-* {
-  border: 1px solid red;
-}
-
 body {
   background-color: #282626;
   color: #FFFFFF;
