@@ -5,8 +5,8 @@
   },
   "scripts": {
     "build-css": "sass src/scss/:src/css/ --load-path=node_modules",
-    "prepare-directories": "npx mkdirp src/public/css",
-    "copy-assets": "npx ncp src/css src/public/css && npx ncp src/html src/public",
+    "prepare-directories": "npx mkdirp src/public/css src/public/js",
+    "copy-assets": "npx ncp src/css src/public/css && npx ncp src/html src/public && npx ncp src/js src/public/js",
     "build": "npm run build-css && npm run prepare-directories && npm run copy-assets",
     "start": "npm run build -- --watch"
   },
