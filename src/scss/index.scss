@@ -54,22 +54,22 @@ body {
   min-height:30px;
   height: auto;  // Adjust this percentage as needed to scale the logo properly within the navbar
   width: auto;  // Maintains the aspect ratio of the image
-  max-height: 3rem;
+  max-height: 3.25rem;
 }
 
 //text gradient
 .gradient-text {
-  background-image: linear-gradient(to right, #F9078E, #0BF5F1);
+  background-image: linear-gradient(to right, #FF0072, #2476FF);
   width: fit-content;  // Adjust based on desired width
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
-
+ 
 //gradient colors
-$gradient-start: #F9078E; // Start color of the gradient
-$gradient-end: #0BF5F1; // End color of the gradient
+$gradient-start: #FF0072; // Start color of the gradient
+$gradient-end: #2476FF ; // End color of the gradient
 
 //gradient button
 .btn {
@@ -214,7 +214,7 @@ body, html {
 .gradient-part {
   flex: 1; // Ensures each part stretches to fill the space evenly
   width: 100%; // Full width of the container
-  background: linear-gradient(to right, #F9078E, #0BF5F1);
+  background: linear-gradient(to right, $gradient-start, $gradient-end);
   opacity: 0; // Initially invisible
   transform: translateY(0%); // Start correctly positioned, no vertical offset
   transition: transform 1s ease-in-out, opacity 1s ease-in-out;
@@ -443,47 +443,92 @@ p {
   }
 }
 
+//our values
+
 // .value-box {
+//   display: flex; // Making the value box a flex container
+//   flex-direction: column; // Arranging children vertically
+//   justify-content: center; // Centering children vertically within the container
+//   align-items: center; // Centering children horizontally
 //   color: white; // Ensuring text color is white for readability
-//   min-height: 225px; // Adjust height based on content size
+//   min-height: 230px; // Adjust height based on content size
+//   text-align: center; // Centering text horizontally, applied globally here for simplicity
 
 //   p {
-//       font-size: 1rem; // Standard font size
+//       font-size: 1.1rem;  // Standard font size
 //   }
 
 //   .value-text {
-//       text-align: center;
+//       margin: auto; // Auto margins can help further center content if needed
 //       width: 100%; // Ensures the text centering takes into account the full width
-//       margin: auto;
+//   }
+
+//   .value-title{
+//     position: relative;
+//     transform:translateY(1em);
+//     overflow: visible;
+    
 //   }
 // }
- 
+
+.section {
+  // background-color: #222; // Assuming a dark background
+  color: white;
+  padding: 20px;
+  margin: 20px;
+}
+
+// .columns {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Adjusts number of columns based on the available width
+//   gap: 15px; 
+// }
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Ensures three columns of equal width
+  gap: 0px;
+  // width: 90%;
+}
+
 
 .value-box {
-  display: flex; // Making the value box a flex container
-  flex-direction: column; // Arranging children vertically
-  justify-content: center; // Centering children vertically within the container
-  align-items: center; // Centering children horizontally
-  color: white; // Ensuring text color is white for readability
-  min-height: 230px; // Adjust height based on content size
-  text-align: center; // Centering text horizontally, applied globally here for simplicity
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // Adjust content spacing
+  align-items: center;
+  padding: 20px;
+  // background: #333; // Slightly different background for boxes
+  border-radius: 10px;
+  // box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  min-height: 100%; // Ensures that all boxes take up the full height of the tallest box
+  height: 100%;
+  color: white;
 
-  p {
-      font-size: 1.1rem;  // Standard font size
-  }
-
+  
   .value-text {
-      margin: auto; // Auto margins can help further center content if needed
-      width: 100%; // Ensures the text centering takes into account the full width
+    margin-bottom: 20px; // Ensures consistent spacing for the title
   }
-
-  .value-title{
-    position: relative;
-    transform:translateY(1em);
-    overflow: visible;
-    
+  
+  .value-title {
+    font-size: 1.2rem; // Ensures visibility on all devices
+    text-transform: uppercase; // Style as seen in the image
+    color: #e63946; // Example color for the title
+    margin-top: auto; // Pushes the title to the bottom of the box
   }
 }
+
+@media (max-width: 767px) {
+  .columns {
+    grid-template-columns: 1fr; // Single column layout for small screens
+  }
+  .section {
+    margin: 5px;
+  }
+}
+
+
+
 
 .full-width{
   display: block;
@@ -493,61 +538,191 @@ p {
 
 
 //services section
-.service-tile {
+// .service-tile {
+//   display: flex;
+//   align-items: center;
+//   margin-bottom: 2rem;
+//   flex-direction: column;
+//   text-align: center;
+
+//   img {
+//       width: 100%; // Full width on mobile
+//       height: auto;
+//       max-height: 300px; // Keeps image height uniform
+//       object-fit: cover; // Ensures the image covers the area without distorting aspect ratio
+//       border-radius: 10px; // Rounded corners as shown in your image
+//   }
+
+//   div {
+//       padding: 20px;
+//       color: #fff;
+//       // background-color: rgba(0,0,0,0.5);
+//       width: 100%; // Full width to match image on mobile
+
+//       h2 {
+//           color: #f0f0f0;
+//           font-size: 24px; // Smaller font size for mobile
+//       }
+
+//       p {
+//           margin: 20px 0;
+//           font-size: 16px; // Smaller text size for better readability on mobile
+//       }
+
+//       a {
+//           margin-top: 20px; // More space around the button for easier tapping
+//       }
+//   }
+
+//   &.reverse {
+//       flex-direction: column-reverse; // Maintain top image and bottom text order on mobile
+//   }
+// }
+
+// // Media query for larger screens
+// @media (min-width: 769px) {
+//   .service-tile {
+//       flex-direction: row;
+//       align-items: center;
+
+//       img {
+//           width: 50%; // Adjust based on your layout needs on desktop
+//       }
+
+//       &.reverse {
+//           flex-direction: row-reverse;
+//       }
+//   }
+// }
+
+/* Base styles for services */
+.services-section {
+  padding: 20px 0;
+}
+
+.services-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+}
+
+.services-row {
   display: flex;
+  flex-direction: column; /* Stack them vertically on mobile */
   align-items: center;
-  margin-bottom: 2rem;
-  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.services-column {
+  flex: 1;
+  width: 100%;
+}
+
+.services-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  // border-radius: 8px;
+}
+
+.services-content {
+  padding: 20px;
   text-align: center;
+  color: #FFFFFF;
+}
 
-  img {
-      width: 100%; // Full width on mobile
-      height: auto;
-      max-height: 300px; // Keeps image height uniform
-      object-fit: cover; // Ensures the image covers the area without distorting aspect ratio
-      border-radius: 10px; // Rounded corners as shown in your image
+.services-title {
+  font-size: 28px;
+  color: #F72585; /* Pinkish hue for title */
+  margin-bottom: 10px;
+}
+
+.services-button {
+  background-color: #4CC9F0; /* Cyan for the button */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px; /* Rounded borders for the button */
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  margin: 10px auto; /* Center button */
+  transition: background-color 0.3s;
+}
+
+.services-button:hover {
+  background-color: darken(#4CC9F0, 10%);
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .services-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  div {
-      padding: 20px;
-      color: #fff;
-      // background-color: rgba(0,0,0,0.5);
-      width: 100%; // Full width to match image on mobile
-
-      h2 {
-          color: #f0f0f0;
-          font-size: 24px; // Smaller font size for mobile
-      }
-
-      p {
-          margin: 20px 0;
-          font-size: 16px; // Smaller text size for better readability on mobile
-      }
-
-      a {
-          margin-top: 20px; // More space around the button for easier tapping
-      }
+  .services-content p { /* Hide details on mobile */
+    display: block;
   }
 
-  &.reverse {
-      flex-direction: column-reverse; // Maintain top image and bottom text order on mobile
+  .services-image img {
+    max-height: 300px;
+  }
+
+  .services-content {
+    text-align: left;
+  }
+
+  .services-title {
+    font-size: 48px; /* Larger title for desktop */
   }
 }
 
-// Media query for larger screens
-@media (min-width: 769px) {
-  .service-tile {
-      flex-direction: row;
-      align-items: center;
+/* Mobile styles */
+@media (max-width: 767px) {
+  .services-content p {
+    display: none; /* Hide lengthy descriptions on mobile */
+  }
 
-      img {
-          width: 50%; // Adjust based on your layout needs on desktop
-      }
+  .services-title {
+    font-size: 24px; /* Smaller font size suitable for mobile */
+  }
 
-      &.reverse {
-          flex-direction: row-reverse;
-      }
+  .services-image{
+    width: 100%;
+    display: flex; /* Flex container for centering the image */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content (if necessary) */
+  }
+
+  .services-image img {
+    width: 90%;
+    height: auto;
+    // object-fit: cover;
+    margin: auto 0;
+    min-width: 300px;
+    // border-radius: 8px;
+  }
+
+  .eng-title{
+    order:2 ;
+  }
+
+  .eng-img{
+    order:1 ;
   }
 }
 
 
+@media (min-width: 767px) {
+    .services-btn{
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+a{
+  text-decoration: none;
+}
