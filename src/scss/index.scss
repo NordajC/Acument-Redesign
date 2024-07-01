@@ -226,7 +226,7 @@ body, html {
   object-fit: cover; /* Ensure the image covers the entire area without distortion */
   display: block;
   margin: 0 auto; /* Center the image horizontally */
-  transform: translateY(-7%);
+  transform: translateY(-5%);
 }
 
 @media (max-width: 768px) {
