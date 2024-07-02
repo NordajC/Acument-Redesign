@@ -186,6 +186,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+function toggleDropdown(id) {
+  const dropdown = document.getElementById(id);
+  dropdown.classList.toggle('visible');
+}
 
 
 
