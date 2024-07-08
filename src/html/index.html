@@ -8,6 +8,14 @@
       integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
       crossorigin="anonymous"
     ></script>
+    
+    <!-- Strapify Link -->
+    <script
+    src="https://strapify.s3.amazonaws.com/strapify-v0.0.7.js"
+    data-strapi-api-url="ENTER YOUR STRAPI URL HERE"
+    type="text/javascript"
+    ></script>
+
     <link rel="stylesheet" href="../css/index.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>Acument</title>
@@ -92,6 +100,22 @@
       });
     </script>
 
+    <!-- <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($navbarBurgers.length > 0) {
+          $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+            });
+          });
+        }
+      });
+    </script> -->
+    
     <section class="hero is-small scroll-snap" style="padding: 0rem">
       <div class="hero-body center-div">
         <h1 class="hero-title text-center">Your path to</h1>
@@ -160,23 +184,30 @@
           <h2 class="gradient-text semi-bold left-border">Our Core Values</h2>
         </div>
         <br>
+        <br>
           <div class="columns is-multiline">
               <div class="column is-one-third">
-                  <div class="value-box passionate box btn ">
-                      <h3 class="title is-4 gradient-text value-title">PASSIONATE</h3>
+                  <div class="value-box passionate box stop-hover-animation btn ">
+                      <div class="value-title-container">
+                        <h3 class="title is-4 gradient-text value-title">PASSIONATE</h3>
+                      </div>
                       <p class="value-text">Passion drives and ensures each of engagement is met with unparalleled dedication and expertise. With fervor as our compass, we strive to deliver exceptional results.</p>
                       
                   </div>
               </div>
               <div class="column is-one-third">
-                  <div class="value-box agile box btn">
+                  <div class="value-box agile box stop-hover-animation btn">
+                    <div class="value-title-container">
                       <h3 class="title is-4 gradient-text value-title">AGILE</h3>
+                    </div>
                       <p class="value-text">No matter how big we get, our decision-making remains razor-sharp, tethered to the pulse of the industry. Our bond with clients empowers us to swiftly anticipate and adapt to shifts, ensuring our agility amidst growth.</p>
                   </div>
               </div>
               <div class="column is-one-third">
-                  <div class="value-box collaborative box btn">
+                  <div class="value-box collaborative box stop-hover-animation btn">
+                    <div class="value-title-container">
                       <h3 class="title is-4 gradient-text value-title">COLLABORATIVE</h3>
+                    </div>
                       <p class="value-text">Our clients aren't just partners, but our allies. Their success is an essential condition to our teams. Together, we synchronize our strategy with their paramount goals and objectives.</p>
                   </div>
               </div>

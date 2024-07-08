@@ -109,4 +109,9 @@ $bulma-navbar-item-img-max-height: 2.5rem;
 }
 
 
-
+@media (min-width: 769px) {
+  .navbar-item{
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+}

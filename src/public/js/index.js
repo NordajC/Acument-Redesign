@@ -186,4 +186,40 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+function toggleDropdown(id) {
+  const dropdown = document.getElementById(id);
+  dropdown.classList.toggle('visible');
+}
+
+async function fetchJobs() {
+  try {
+    //TODO Change the URL to the correct one
+      const response = await fetch('http://localhost:1337/api/jobs', {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      const json_response = await response.json();
+
+      console.log('Response JSON', json_response);
+      console.log('Response JSON Attributes', json_response.data[0].attributes.title);
+
+      const job = json_response.data[0];
+      const attributes = job.attributes;
+
+      const title = attributes.title;
+      const category = attributes.category;
+      const date = attributes.date;
+      const location = attributes.location;
+      const rolesAndResponsibilities = attributes.roles_and_responsibilities;
+
+      console.log('title: ', title);
+  } catch (error) {
+      console.error('Error fetching jobs:', error);
+  }
+}
+
+fetchJobs();
 

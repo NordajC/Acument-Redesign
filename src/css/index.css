@@ -23381,6 +23381,12 @@ has-background-danger.is-hoverable:active {
   flex-grow: 1; /* Makes .navbar-end grow and take up any remaining space */
 }
 
+@media (min-width: 769px) {
+  .navbar-item {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+}
 body {
   background-color: #282626;
   color: #FFFFFF;
@@ -23811,11 +23817,22 @@ p {
 }
 .value-box .value-text {
   margin-bottom: 20px;
+  text-align: center;
+}
+.value-box .value-title-container {
+  background-color: #282626;
+  transform: translateY(-50px);
+  padding: 1rem;
 }
 .value-box .value-title {
-  font-size: 2rem;
+  font-size: 2em;
   text-transform: uppercase;
   color: #e63946;
+  margin-bottom: -30px;
+}
+
+.value-box:hover {
+  background-color: none;
 }
 
 @media (max-width: 767px) {
@@ -23826,6 +23843,11 @@ p {
     margin: 5px;
   }
 }
+.stop-hover-animation:hover {
+  transition: none !important;
+  background-color: none;
+}
+
 .full-width {
   display: block;
   height: auto;
@@ -24000,7 +24022,6 @@ a {
   padding: 2rem 1rem;
 }
 .get-in-touch .title {
-  color: #9e9e9e;
   margin-bottom: 1rem;
 }
 .get-in-touch .content {

@@ -193,6 +193,7 @@ function toggleDropdown(id) {
 
 async function fetchJobs() {
   try {
+    //TODO Change the URL to the correct one
       const response = await fetch('http://localhost:1337/api/jobs', {
           method: 'GET',
           headers: {

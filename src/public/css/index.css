@@ -23381,6 +23381,12 @@ has-background-danger.is-hoverable:active {
   flex-grow: 1; /* Makes .navbar-end grow and take up any remaining space */
 }
 
+@media (min-width: 769px) {
+  .navbar-item {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+}
 body {
   background-color: #282626;
   color: #FFFFFF;
@@ -23390,37 +23396,16 @@ body {
   padding: 0;
 }
 
-.navbar {
-  background-color: #282626;
-  color: #FFFFFF;
-  width: 100%;
-  padding: 1em;
-  height: 7em;
-}
-
-.navbar {
-  background-color: #282626;
-  color: #FFFFFF;
-  width: 100%;
-  padding: 1em;
-  height: 6em;
-}
-
-.navbar-brand {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  width: 20vw;
-  min-width: 100px;
-  margin: 0;
-  padding: 0;
-}
-
 .navbar-item {
   height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+  width: auto;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+.navbar-item:hover {
+  background-color: none;
 }
 
 #nav-logo {
@@ -23430,6 +23415,48 @@ body {
   max-height: 3.25rem;
 }
 
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: rgba(40, 38, 38, 0.95);
+  z-index: 1000;
+  width: 100%;
+  padding: 1em;
+  height: auto;
+}
+.navbar .navbar-brand {
+  flex-grow: 0;
+}
+.navbar .navbar-burger {
+  display: block;
+  margin-left: auto;
+}
+.navbar .navbar-menu {
+  display: none;
+}
+.navbar .navbar-menu.is-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(40, 38, 38, 0.95);
+  width: 100%;
+}
+.navbar .navbar-end {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+@media screen and (min-width: 1088px) {
+  .navbar-menu {
+    justify-content: center;
+  }
+}
 .gradient-text {
   background-image: linear-gradient(to right, #FF0072, #2476FF);
   width: fit-content;
@@ -23579,7 +23606,7 @@ body, html {
   object-fit: cover; /* Ensure the image covers the entire area without distortion */
   display: block;
   margin: 0 auto; /* Center the image horizontally */
-  transform: translateY(-7%);
+  transform: translateY(-5%);
 }
 
 @media (max-width: 768px) {
@@ -23790,12 +23817,22 @@ p {
 }
 .value-box .value-text {
   margin-bottom: 20px;
+  text-align: center;
+}
+.value-box .value-title-container {
+  background-color: #282626;
+  transform: translateY(-50px);
+  padding: 1rem;
 }
 .value-box .value-title {
-  font-size: 1.2rem;
+  font-size: 2em;
   text-transform: uppercase;
   color: #e63946;
-  margin-top: auto;
+  margin-bottom: -30px;
+}
+
+.value-box:hover {
+  background-color: none;
 }
 
 @media (max-width: 767px) {
@@ -23806,6 +23843,11 @@ p {
     margin: 5px;
   }
 }
+.stop-hover-animation:hover {
+  transition: none !important;
+  background-color: none;
+}
+
 .full-width {
   display: block;
   height: auto;
@@ -23926,6 +23968,81 @@ p {
 }
 a {
   text-decoration: none;
+}
+
+.value-propositions {
+  color: #ffffff;
+  padding: 2rem 1rem;
+}
+.value-propositions .title {
+  color: #9e9e9e;
+}
+.value-propositions .columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.value-propositions .columns .column {
+  display: flex;
+  flex-direction: column;
+}
+.value-propositions .columns .column .proposition {
+  background: #292929;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.value-propositions .columns .column .proposition .proposition-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  border-bottom: 1px solid #444;
+  text-align: center;
+  min-height: 4rem;
+  align-items: center;
+}
+.value-propositions .columns .column .proposition .proposition-header:hover {
+  color: #00d1b2;
+}
+.value-propositions .columns .column .proposition .proposition-dropdown {
+  display: none;
+  padding: 0.5rem 0;
+}
+.value-propositions .columns .column .proposition .proposition-dropdown.visible {
+  display: block;
+}
+
+.get-in-touch {
+  color: #ffffff;
+  padding: 2rem 1rem;
+}
+.get-in-touch .title {
+  margin-bottom: 1rem;
+}
+.get-in-touch .content {
+  font-size: 1rem;
+}
+.get-in-touch .content .office {
+  color: #9e9e9e;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.get-in-touch .content .location {
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.get-in-touch .content p {
+  margin: 0.5rem 0;
+}
+.get-in-touch .content p i {
+  color: #00d1b2;
+  margin-right: 0.5rem;
 }
 
 /*# sourceMappingURL=index.css.map */

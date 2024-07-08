@@ -44,6 +44,9 @@ body {
 //   padding: 0;
 // }
 
+
+/////////////////////////////////////////////////////
+
 .navbar-item{
   height: 100%;
   width: auto;
@@ -111,6 +114,121 @@ body {
     justify-content: center; // Center items for larger screens
   }
 }
+
+////////////////////////
+
+// .navbar-item {
+//   height: 100%;
+//   width: auto;
+//   color: #FFFFFF;
+//   text-align: center;
+//   font-size: 1.75rem;
+// }
+
+// .navbar-item:hover {
+//   background-color: none;
+// }
+
+// #nav-logo {
+//   min-height: 30px;
+//   height: auto; // Adjust this percentage as needed to scale the logo properly within the navbar
+//   width: auto; // Maintains the aspect ratio of the image
+//   max-height: 3.25rem;
+// }
+
+// .navbar {
+//   position: sticky;
+//   top: 0;
+//   background-color: rgba($background-color, 0.95);
+//   z-index: 1000;
+//   width: 100%;
+//   padding: 1em;
+//   height: auto; // Allow the navbar height to adjust based on content
+
+//   .navbar-brand {
+//     flex-grow: 0; // Keeps the brand logo from stretching
+//   }
+
+//   .navbar-burger {
+//     display: block; // Always show the burger menu
+//     margin-left: auto; // Pushes the burger to the right
+//   }
+
+//   .navbar-menu {
+//     display: none; // Hide by default
+//     position: fixed;
+//     top: 0;
+//     right: -300px; // Start off-screen to the right
+//     height: 100%;
+//     width: 300px; // Adjust the width as needed
+//     background-color: rgba($background-color, 0.95);
+//     flex-direction: column; // Align items vertically in a column
+//     align-items: center; // Center items horizontally
+//     transition: right 0.3s ease; // Smooth slide-in effect
+
+//     &.is-active {
+//       right: 0; // Slide in from the right
+//       display: flex; // Ensure the menu is visible when active
+//     }
+//   }
+
+//   .navbar-end {
+//     display: flex;
+//     flex-direction: column; // Ensure items are in a row
+//     align-items: center; // Center items within the row
+//   }
+// }
+
+// @media screen and (max-width: 1087px) {
+//   .navbar-menu {
+//     display: none; // Hide by default
+//     position: absolute;
+//     top: 100%; // Position right below the navbar
+//     left: 0;
+//     right: 0;
+//     background-color: rgba($background-color, 0.95);
+//     flex-direction: column; // Align items vertically in a column
+//     align-items: center; // Center items horizontally
+//     transition: none; // No transition effect for mobile
+
+//     &.is-active {
+//       display: flex; // Show the menu
+//     }
+//   }
+
+//   .navbar-end {
+//     display: flex;
+//     flex-direction: column; // Ensure items are in a column for mobile
+//     width: 100%; // Take full width
+//     align-items: center; // Center items within the column
+//   }
+// }
+
+// @media screen and (min-width: 1088px) {
+//   .navbar-menu {
+//     display: flex; // Ensure the menu is always visible on larger screens
+//     position: fixed; // Ensure it is positioned fixed for larger screens
+//     top: 0;
+//     right: -300px; // Start off-screen to the right
+//     height: 100%; // Full height of the screen
+//     width: 300px; // Adjust the width as needed
+//     background-color: rgba($background-color, 0.95);
+//     flex-direction: column; // Align items vertically in a column
+//     align-items: center; // Center items horizontally
+//     transition: right 0.3s ease; // Smooth slide-in effect
+
+//     &.is-active {
+//       right: 0; // Slide in from the right
+//     }
+//   }
+
+//   .navbar-end {
+//     flex-direction: row; // Ensure items are in a row for larger screens
+//     width: auto; // Reset width for larger screens
+//     align-items: center; // Center items within the row for larger screens
+//   }
+// }
+
 
 
 
@@ -565,14 +683,27 @@ p {
   
   .value-text {
     margin-bottom: 20px; // Ensures consistent spacing for the title
+    text-align: center;
+  }
+
+  .value-title-container{
+    background-color: $background-color;
+    transform: translateY(-50px);
+    // position: absolute;
+    padding: 1rem;
   }
   
   .value-title {
-    font-size: 2rem; // Ensures visibility on all devices
+    font-size: 2em; // Ensures visibility on all devices
     text-transform: uppercase; // Style as seen in the image
     color: #e63946; // Example color for the title
     // margin-top: auto; // Pushes the title to the bottom of the box
+    margin-bottom: -30px;
   }
+}
+
+.value-box:hover{
+  background-color: none;
 }
 
 @media (max-width: 767px) {
@@ -581,6 +712,13 @@ p {
   }
   .section {
     margin: 5px;
+  }
+}
+
+.stop-hover-animation {
+  &:hover {
+    transition: none !important;
+    background-color: none;
   }
 }
 

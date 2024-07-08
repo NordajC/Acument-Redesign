@@ -8,6 +8,14 @@
       integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
       crossorigin="anonymous"
     ></script>
+    
+    <!-- Strapify Link -->
+    <script
+    src="https://strapify.s3.amazonaws.com/strapify-v0.0.7.js"
+    data-strapi-api-url="ENTER YOUR STRAPI URL HERE"
+    type="text/javascript"
+    ></script>
+
     <link rel="stylesheet" href="../css/index.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>Acument</title>
@@ -30,7 +38,7 @@
       </div>
     </div>
 
-    <nav class="navbar is-spaced is-transparent">
+    <!-- <nav class="navbar is-spaced is-transparent">
       <div class="navbar-brand">
         <a href="#" class="navbar-item" id="brand-logo">
           <img
@@ -43,7 +51,71 @@
       <div class="navbar-end" style="justify-content: flex-end">
         <button class="btn navbar-button">Get in touch</button>
       </div>
+    </nav> -->
+
+    <nav class="navbar is-spaced is-transparent" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a href="#" class="navbar-item" id="brand-logo">
+          <img src="../assets/web images/Asset 10@300x.png" alt="Logo" id="nav-logo"/>
+        </a>
+      </div>
+      <div class="navbar-end">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="#home">
+            Home
+          </a>
+          <a class="navbar-item" href="#about">
+            About Us
+          </a>
+          <a class="navbar-item" href="#values">
+            Core Values
+          </a>
+          <a class="navbar-item" href="#services">
+            Services
+          </a>
+        </div>
+      </div>
     </nav>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($navbarBurgers.length > 0) {
+          $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+            });
+          });
+        }
+      });
+    </script>
+
+    <!-- <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($navbarBurgers.length > 0) {
+          $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+            });
+          });
+        }
+      });
+    </script> -->
+    
     <section class="hero is-small scroll-snap" style="padding: 0rem">
       <div class="hero-body center-div">
         <h1 class="hero-title text-center">Your path to</h1>
@@ -112,23 +184,31 @@
           <h2 class="gradient-text semi-bold left-border">Our Core Values</h2>
         </div>
         <br>
+        <br>
           <div class="columns is-multiline">
               <div class="column is-one-third">
-                  <div class="value-box passionate box btn ">
+                  <div class="value-box passionate box stop-hover-animation btn ">
+                      <div class="value-title-container">
+                        <h3 class="title is-4 gradient-text value-title">PASSIONATE</h3>
+                      </div>
                       <p class="value-text">Passion drives and ensures each of engagement is met with unparalleled dedication and expertise. With fervor as our compass, we strive to deliver exceptional results.</p>
-                      <h3 class="title is-4 gradient-text value-title">PASSIONATE</h3>
+                      
                   </div>
               </div>
               <div class="column is-one-third">
-                  <div class="value-box agile box btn">
-                      <p class="value-text">No matter how big we get, our decision-making remains razor-sharp, tethered to the pulse of the industry. Our bond with clients empowers us to swiftly anticipate and adapt to shifts, ensuring our agility amidst growth.</p>
+                  <div class="value-box agile box stop-hover-animation btn">
+                    <div class="value-title-container">
                       <h3 class="title is-4 gradient-text value-title">AGILE</h3>
+                    </div>
+                      <p class="value-text">No matter how big we get, our decision-making remains razor-sharp, tethered to the pulse of the industry. Our bond with clients empowers us to swiftly anticipate and adapt to shifts, ensuring our agility amidst growth.</p>
                   </div>
               </div>
               <div class="column is-one-third">
-                  <div class="value-box collaborative box btn">
-                      <p class="value-text">Our clients aren't just partners, but our allies. Their success is an essential condition to our teams. Together, we synchronize our strategy with their paramount goals and objectives.</p>
+                  <div class="value-box collaborative box stop-hover-animation btn">
+                    <div class="value-title-container">
                       <h3 class="title is-4 gradient-text value-title">COLLABORATIVE</h3>
+                    </div>
+                      <p class="value-text">Our clients aren't just partners, but our allies. Their success is an essential condition to our teams. Together, we synchronize our strategy with their paramount goals and objectives.</p>
                   </div>
               </div>
           </div>
@@ -151,7 +231,7 @@
         </div>
         <div class="services-column is-half">
           <div class="services-content">
-            <h2 class="services-title">DIGITAL</h2>
+            <h2 class="services-title gradient-text bold">DIGITAL</h2>
             <p>We provide innovative digital solutions to help you chart a new course in your customer journey. Our solutions are designed to be exhilarating, helping you to increase customer retention and generate more revenue.</p>
             <a href="#digital-case" class="text-button btn services-button">Case Study →</a>
           </div>
@@ -166,7 +246,7 @@
         </div>
         <div class="services-column is-half">
           <div class="services-content">
-            <h2 class="services-title">DATA</h2>
+            <h2 class="services-title gradient-text bold">DATA</h2>
             <p>We help organizations develop a data-driven culture and leverage real-time analytics to enable business insights. We specialize in breaking silos to ensure data is accessible and transparent throughout the organization.</p>
             <a href="#data-case" class="text-button btn services-button">Case Study →</a>
           </div>
@@ -176,7 +256,7 @@
       <div class="services-row eng-row">
         <div class="services-column is-half eng-title">
           <div class="services-content">
-            <h2 class="services-title">ENGINEERING</h2>
+            <h2 class="services-title gradient-text bold">ENGINEERING</h2>
             <p>We provide innovative digital solutions to help you chart a new course in your customer journey, designed to unlock the full potential of your business.</p>
             <a href="#engineering-case" class="text-button btn services-button">Case Study →</a>
           </div>
@@ -188,7 +268,87 @@
         </div>
       </div>
     </div>
-  </section>  
+  </section>
+
+  <section class="value-propositions">
+    <div class="container">
+      <div class="left-border">
+        <h2 class="gradient-text semi-bold left-border">Unique Value Propositions</h2>
+      </div>
+      <br>
+        <div class="columns is-mobile is-multiline">
+            <div class="column is-one-fifth-desktop is-full-mobile">
+                <div class="proposition">
+                    <img src="" alt="">
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown1')">
+                        <span>Agile and Responsive</span>
+                    </div>
+                    <div id="dropdown1" class="proposition-dropdown">
+                        <p>Our compact size allows us to tailor solutions and react swiftly to clients needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-fifth-desktop is-full-mobile">
+                <div class="proposition">
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown2')">
+                        <span>Always Available</span>
+                    </div>
+                    <div id="dropdown2" class="proposition-dropdown">
+                        <p>Our Account Managers are available 24x7, so you get immediate answers, minimize downtime & maximize productivity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-fifth-desktop is-full-mobile">
+                <div class="proposition">
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown3')">
+                        <span>Dedicated Partnership</span>
+                    </div>
+                    <div id="dropdown3" class="proposition-dropdown">
+                        <p>We roll up our sleeves, becoming an extension of your team. Our combined 30+ years of experience bringing deep expertise to your specific challenges.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-fifth-desktop is-full-mobile">
+                <div class="proposition">
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown4')">
+                        <span>Uncompromising Performance</span>
+                    </div>
+                    <div id="dropdown4" class="proposition-dropdown">
+                        <p>We deliver results and willing to commit to a high-performing replacement within 2 weeks for offshore resources ensure seamless continuity and progress.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-fifth-desktop is-full-mobile">
+                <div class="proposition">
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown5')">
+                        <span>Cost Optimization</span>
+                    </div>
+                    <div id="dropdown5" class="proposition-dropdown">
+                        <p>We offer competitive rates that our clients find are a great value on their return on investment (ROI).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section> 
+
+  <section class="get-in-touch">
+    <div class="container">
+      <div class="left-border">
+        <h2 class="gradient-text semi-bold left-border">Get In Touch</h2>
+      </div>
+        <div class="content">
+            <p class="office">Headquarter Office</p>
+            <p class="location">Hong Kong</p>
+            <p><i class="fas fa-map-marker-alt"></i> Billion Plaza 2, 17/F, Room 5A, 10 Cheung Yue Street, Lai Chi Kok, Hong Kong</p>
+            
+            <p class="location">Singapore</p>
+            <p><i class="fas fa-map-marker-alt"></i> 16 Raffles Quay, #41-01 Hong Leong Building, Singapore 048581</p>
+            
+            <p><i class="fas fa-envelope"></i> inquiry@acumentgroup.com</p>
+        </div>
+    </div>
+  </section>
   
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/index.js"></script>
