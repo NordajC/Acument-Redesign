@@ -12,9 +12,15 @@
     <!-- Strapify Link -->
     <script
     src="https://strapify.s3.amazonaws.com/strapify-v0.0.7.js"
-    data-strapi-api-url="ENTER YOUR STRAPI URL HERE"
+    data-strapi-api-url="https://supportive-action-24aa34bd56.strapiapp.com"
     type="text/javascript"
     ></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
 
     <link rel="stylesheet" href="../css/index.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -53,7 +59,7 @@
       </div>
     </nav> -->
 
-    <nav class="navbar is-spaced is-transparent" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-spaced is-transparent is-sticky is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a href="#" class="navbar-item" id="brand-logo">
           <img src="../assets/web images/Asset 10@300x.png" alt="Logo" id="nav-logo"/>
@@ -79,6 +85,18 @@
           </a>
           <a class="navbar-item" href="#services">
             Services
+          </a>
+          <a class="navbar-item" href="#">
+            Job Listings
+          </a>
+          <a class="navbar-item" href="#">
+            Services
+          </a>
+          <a class="navbar-item" href="#">
+            Unique Propersitions
+          </a>
+          <a class="navbar-item" href="#">
+            Get In Touch
           </a>
         </div>
       </div>
@@ -118,7 +136,7 @@
     
     <section class="hero is-small scroll-snap" style="padding: 0rem">
       <div class="hero-body center-div">
-        <h1 class="hero-title text-center">Your path to</h1>
+        <h1 class="hero-title text-center hero-top-margin">Your path to</h1>
         <h1 class="gradient-text hero-title bold text-center">
           Digital Excellence
         </h1>
@@ -173,7 +191,7 @@
             forefront.
           </p>
           <br />
-          <span class="close btn center-btn">Close</span>
+          <span class="close button-top-right">&#10005</span>
         </div>
       </div>
     </section>
@@ -196,7 +214,7 @@
                   </div>
               </div>
               <div class="column is-one-third">
-                  <div class="value-box agile box stop-hover-animation btn">
+                  <div class="value-box agile box value-gradient-hover">
                     <div class="value-title-container">
                       <h3 class="title is-4 gradient-text value-title">AGILE</h3>
                     </div>
@@ -221,6 +239,11 @@
     <br>
 
     <div class="services-container">
+
+      <p>
+        Our specialization are mainly in Digital Transformation, Data Optimization and Engineering Solutions. With extensive experience and deep local market knowledge spanning both Hong Kong and Singapore, we offer invaluable insights and highly flexible solutions support to help drive our clients’ digital growth.
+      </p>
+      <br>
       
       <!-- Digital -->
       <div class="services-row">
@@ -232,11 +255,32 @@
         <div class="services-column is-half">
           <div class="services-content">
             <h2 class="services-title gradient-text bold">DIGITAL</h2>
-            <p>We provide innovative digital solutions to help you chart a new course in your customer journey. Our solutions are designed to be exhilarating, helping you to increase customer retention and generate more revenue.</p>
-            <a href="#digital-case" class="text-button btn services-button">Case Study →</a>
+            <p>We provide innovative digital solutions to help you chart a new course in your customer journey. Our solutions are designed to be exhilirating, helping you to increase customer retention and generate more revenue. Take advantage of our digital capabilities today and unlock the full potential of your business.</p>
+            <button id="digital-case-btn" class="text-button btn services-button">Case Study →</button>
           </div>
         </div>
       </div>
+
+      <div class="modal" id="digital-case">
+        <div class="modal-content">
+          <div class="left-border ">
+            <h2 class="gradient-text semi-bold left-border">Improve Customer Journey of VIP Guests</h2>
+          </div>
+          <br />
+          <img src="../assets/web images/DATA3-AdobeStock_814093692.jpeg">
+          <br>
+          <p>
+            Our Client is a world renowned actor in the hospitality industry aiming to provide the best customer experience to their top 1% spenders.
+            <br><br>
+            We focused on optimizing the customer journey and enhancing with digital solutions. We provided the whole scrum team consisting of Product Owners, UX Designers, Business Analysts and few Full-Stack developers to conduct user research and develop new mobile applications following best technology practices i.e. Cloud Native, native app iOS/Android development, Agile, DevOps.
+            <br><br>
+            New features released included Booking (hotel, concerts, dinner, transportation) and Redemption (Chips,Vouchers) and delivery was on-time and within budget. NPS survey indicates strong customer satisfaction and retention. Usage of Mobile app is high which allows to collect and analyse customer data and design more personalised marketing campaigns.
+          </p>
+          <br />
+          <span id="digital-case-close" class="close button-top-right">&#10005</span>
+        </div>
+      </div>
+
       <!-- Data -->
       <div class="services-row">
         <div class="services-column is-half">
@@ -247,28 +291,182 @@
         <div class="services-column is-half">
           <div class="services-content">
             <h2 class="services-title gradient-text bold">DATA</h2>
-            <p>We help organizations develop a data-driven culture and leverage real-time analytics to enable business insights. We specialize in breaking silos to ensure data is accessible and transparent throughout the organization.</p>
-            <a href="#data-case" class="text-button btn services-button">Case Study →</a>
+            <p>We help organizations develop a data-driven culture and leverage real-time analytics to enable business insights. We specialize in breaking silos to ensure data is accessible and transparent throughout the organization, enabling teams to make smarter decisions.</p>
+            <button id="data-case-btn" class="text-button btn services-button">Case Study →</button>
           </div>
         </div>
       </div>
-      <!-- Engineering -->
-      <div class="services-row eng-row">
-        <div class="services-column is-half eng-title">
+
+      <div class="modal" id="data-case">
+        <div class="modal-content">
+          <div class="left-border ">
+            <h2 class="gradient-text semi-bold left-border">Improve Customer Journey of VIP Guests</h2>
+          </div>
+          <br />
+          <img src="../assets/web images/DATA3-AdobeStock_814093692.jpeg">
+          <br>
+          <p>
+            Our Client is a world renowned actor in the hospitality industry aiming to provide the best customer experience to their top 1% spenders.
+            <br><br>
+            We focused on optimizing the customer journey and enhancing with digital solutions. We provided the whole scrum team consisting of Product Owners, UX Designers, Business Analysts and few Full-Stack developers to conduct user research and develop new mobile applications following best technology practices i.e. Cloud Native, native app iOS/Android development, Agile, DevOps.
+            <br><br>
+            New features released included Booking (hotel, concerts, dinner, transportation) and Redemption (Chips,Vouchers) and delivery was on-time and within budget. NPS survey indicates strong customer satisfaction and retention. Usage of Mobile app is high which allows to collect and analyse customer data and design more personalised marketing campaigns.
+          </p>
+          <br />
+          <span id="data-case-close" class="close button-top-right">&#10005</span>
+        </div>
+      </div>
+
+      <div class="services-row">
+        <div class="services-column is-half">
+          <figure class="services-image">
+            <img src="../assets/web images/ENGINEERING4-AdobeStock_510781301.jpeg" alt="Data Service">
+          </figure>
+        </div>
+        <div class="services-column is-half">
           <div class="services-content">
             <h2 class="services-title gradient-text bold">ENGINEERING</h2>
             <p>We provide innovative digital solutions to help you chart a new course in your customer journey, designed to unlock the full potential of your business.</p>
-            <a href="#engineering-case" class="text-button btn services-button">Case Study →</a>
+            <button id="engineering-case-btn" class="text-button btn services-button">Case Study →</button>
           </div>
         </div>
-        <div class="services-column is-half eng-img">
-          <figure class="services-image">
-            <img src="../assets/web images/ENGINEERING4-AdobeStock_510781301.jpeg" alt="Engineering Service">
-          </figure>
+      </div>
+
+      <div class="modal" id="engineering-case">
+        <div class="modal-content">
+          <div class="left-border ">
+            <h2 class="gradient-text semi-bold left-border">Improve Customer Journey of VIP Guests</h2>
+          </div>
+          <br />
+          <img src="../assets/web images/DATA3-AdobeStock_814093692.jpeg">
+          <br>
+          <p>
+            Our Client is a world renowned actor in the hospitality industry aiming to provide the best customer experience to their top 1% spenders.
+            <br><br>
+            We focused on optimizing the customer journey and enhancing with digital solutions. We provided the whole scrum team consisting of Product Owners, UX Designers, Business Analysts and few Full-Stack developers to conduct user research and develop new mobile applications following best technology practices i.e. Cloud Native, native app iOS/Android development, Agile, DevOps.
+            <br><br>
+            New features released included Booking (hotel, concerts, dinner, transportation) and Redemption (Chips,Vouchers) and delivery was on-time and within budget. NPS survey indicates strong customer satisfaction and retention. Usage of Mobile app is high which allows to collect and analyse customer data and design more personalised marketing campaigns.
+          </p>
+          <br />
+          <span id="engineering-case-close" class="close button-top-right">&#10005</span>
         </div>
       </div>
+
     </div>
   </section>
+
+  <style>
+    .job-section {
+        padding: 20px;
+    }
+    .job-container {
+        max-width: 1200px;
+        margin: auto;
+        color: #E0E0E0;
+    }
+    .job-gradient-text {
+        background: linear-gradient(to right, #FF0072, #2476FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .job-semi-bold {
+        font-weight: 600;
+    }
+    .job-left-border {
+        border-left: 4px solid #FF0072;
+        padding-left: 10px;
+    }
+    .job-category-menu {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px 0;
+        white-space: nowrap;
+    }
+    .job-category-button {
+    background: transparent;
+    border: none;
+    color: #E0E0E0;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.job-category-button:hover {
+    color: #00d1b2;
+}
+
+.job-category-button.active {
+    color: #00d1b2;
+    border-bottom: 2px solid #00d1b2;
+}
+    .job-list {
+        margin-top: 20px;
+    }
+    .job-item {
+        border: 1px solid #444;
+        padding: 20px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+    }
+    .job-title {
+        margin: 0;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    .job-details {
+        margin-top: 10px;
+    }
+    .job-details img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .job-info-and-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.job-details .location, 
+.job-details .date, 
+.job-details .form-container {
+    text-align: left;
+    width: 100%;
+}
+
+.job-details .form-container {
+    margin-top: 20px;
+}
+    .form-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+    }
+</style>
+<section class="section">
+    <div class="container">
+      <div class="left-border">
+        <h2 class="gradient-text semi-bold left-border">Job Listings</h2>
+      </div>
+        <div id="category-menu" class="job-category-menu"></div>
+        <div id="job-list" class="job-list"></div>
+    </div>
+</section>
+
+
+
+
+<script src="index.js"></script>
 
   <section class="value-propositions">
     <div class="container">
@@ -338,19 +536,36 @@
         <h2 class="gradient-text semi-bold left-border">Get In Touch</h2>
       </div>
         <div class="content">
+            <p class="office">Email Address</p>
+            <p><i class="fas fa-envelope"></i> inquiry@acumentgroup.com</p>
+
             <p class="office">Headquarter Office</p>
+
             <p class="location">Hong Kong</p>
             <p><i class="fas fa-map-marker-alt"></i> Billion Plaza 2, 17/F, Room 5A, 10 Cheung Yue Street, Lai Chi Kok, Hong Kong</p>
             
             <p class="location">Singapore</p>
             <p><i class="fas fa-map-marker-alt"></i> 16 Raffles Quay, #41-01 Hong Leong Building, Singapore 048581</p>
-            
-            <p><i class="fas fa-envelope"></i> inquiry@acumentgroup.com</p>
         </div>
     </div>
   </section>
-  
+  <section>
+    <footer style="background-color: #282626; padding: 40px 20px; text-align: center; margin-top: auto; display: flex; justify-content: center; align-items: center;">
+          <div style="max-width: 90vw; margin: 0 auto;">
+              <h2 style="font-size: 2em; font-weight: bold; color: #ffffff; margin: 0 0 20px 0; line-height: 1.2; background: linear-gradient(to right, #FF0072, #2476FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">YOUR PATH TO DIGITAL EXCELLENCE</h2>
+              <p style="margin: 10px 0; color: #ffffff;">&copy; 2024 Acument Group</p>
+              <p style="margin: 10px 0; color: #ffffff;">All rights reserved.</p>
+              <p style="margin: 10px 0;">
+                  <a href="privacy.html" target="_blank" style="color: #ffffff; margin: 0 5px;">Privacy Policy</a>
+              </p>
+          </div>
+      </footer>
+    </section>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      console.log(typeof marked); // Should log 'function' if marked.js is loaded correctly
+    </script>
     <script src="../js/index.js"></script>
   </body>
 </html>
