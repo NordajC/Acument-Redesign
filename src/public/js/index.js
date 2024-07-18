@@ -181,10 +181,26 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });
 
-function toggleDropdown(id) {
+//propersitions dropdown
+
+// function toggleDropdown(id) {
+//   const dropdown = document.getElementById(id);
+//   dropdown.classList.toggle("visible");
+// }
+
+function toggleDropdown(id, element) {
   const dropdown = document.getElementById(id);
+  const arrow = element.querySelector('.arrow');
   dropdown.classList.toggle("visible");
+
+  // Toggle arrow direction based on visibility
+  if (dropdown.classList.contains("visible")) {
+    arrow.innerHTML = '&#9650;'; // Upward arrow when visible
+  } else {
+    arrow.innerHTML = '&#9660;'; // Downward arrow when hidden
+  }
 }
+
 
 //value propersitions:
 
@@ -232,6 +248,46 @@ document.addEventListener("DOMContentLoaded", function () {
   var modal = document.getElementById("digital-case");
   var btn = document.getElementById("digital-case-btn");
   var span = document.getElementById("digital-case-close");
+
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var modal = document.getElementById("our-founders-modal");
+  var btn = document.getElementById("our-founders");
+  var span = document.getElementById("our-founders-close");
+
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var modal = document.getElementById("our-founders-modal");
+  var btn = document.getElementById("our-founders-1");
+  var span = document.getElementById("our-founders-close");
 
   btn.onclick = function () {
     modal.style.display = "block";
@@ -348,6 +404,84 @@ function escapeHtml(text) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  var jobTitle = "";
+
+  // Initialize the JotForm feedback
+  var JFL_241966305117355 = new JotformFeedback({
+      formId: '241966305117355',
+      base: 'https://form.jotform.com/',
+      windowTitle: 'Apply Now', // Set the window title
+      backgroundColor: '#282626', // Change the background color to match the form
+      fontColor: '#FFFFFF',
+      type: '0',
+      height: 800, // Adjust the height as needed
+      width: 700,
+      openOnLoad: false,
+      onOpen: function() {
+          // Log all input field IDs
+          var iframe = document.querySelector("iframe");
+          if (iframe) {
+              var iframeDocument = iframe.contentWindow.document;
+              var inputFields = iframeDocument.querySelectorAll('input, textarea, select');
+              inputFields.forEach(function(input) {
+                  console.log(`Field Name: ${input.name}, Field ID: ${input.id}`);
+              });
+
+              // Apply custom CSS to hide unnecessary elements around the form
+              var style = document.createElement('style');
+              style.innerHTML = `
+                  body {
+                      padding: 0 !important;
+                      margin: 0 !important;
+                      overflow: hidden !important;
+                  }
+                  .form-all {
+                      border: none !important;
+                      box-shadow: none !important;
+                  }
+                  .form-header-group {
+                      margin: 0 !important;
+                  }
+                  .jotform-form {
+                      padding: 0 !important;
+                  }
+              `;
+              iframeDocument.head.appendChild(style);
+          }
+
+          // Ensure that the form input for job title is correctly set here
+          var hiddenInput = iframe.contentWindow.document.getElementById('input_4'); // Adjust ID as necessary
+          if (hiddenInput) {
+              hiddenInput.value = jobTitle;
+          }
+      },
+      // Custom CSS to change the title bar color and adjust the styling
+      customStyle: `
+          .feedbackContentWrapper .header {
+              background-color: #282626 !important;
+              color: #FFFFFF !important;
+          }
+          .feedbackContentWrapper {
+              background-color: #000000 !important;
+              border: none !important;
+              border-radius: 8px !important;
+          }
+          .feedbackContentWrapper .content {
+              padding-top: 10px !important;
+          }
+          .feedbackContentWrapper .header .title {
+              font-size: 20px !important;
+              font-weight: bold !important;
+              background: linear-gradient(to right, #FF0072, #2476FF);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+          }
+      `
+  });
+
+  // Log the JotformFeedback object to inspect available methods
+  console.log(JFL_241966305117355);
+
   async function fetchJobPostings() {
       try {
           const response = await fetch('https://supportive-action-24aa34bd56.strapiapp.com/api/jobs?populate=*', {
@@ -426,9 +560,9 @@ document.addEventListener('DOMContentLoaded', function() {
               const jobItem = document.createElement('div');
               jobItem.classList.add('job-item');
 
-              const jobTitle = document.createElement('h4');
-              jobTitle.classList.add('job-title');
-              jobTitle.textContent = job.attributes.title;
+              const jobTitleElement = document.createElement('h4');
+              jobTitleElement.classList.add('job-title');
+              jobTitleElement.textContent = job.attributes.title;
 
               const jobDetails = document.createElement('div');
               jobDetails.classList.add('job-details');
@@ -440,36 +574,38 @@ document.addEventListener('DOMContentLoaded', function() {
               const rolesAndResponsibilitiesHtml = marked.parse(job.attributes.roles_and_responsibilities);
 
               jobDetails.innerHTML = `
-                  <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                      ${imageUrl ? `<img src="${imageUrl}" alt="${job.attributes.title}" style="width: 100%;" />` : ''}
-                      <div class="roles-responsibilities" style="text-align: left; width: 100%;"><strong>Roles and Responsibilities:</strong> ${rolesAndResponsibilitiesHtml}</div>
-                      <p class="location" style="text-align: left; width: 100%;"><strong>Location:</strong> ${job.attributes.location}</p>
-                      <p class="date" style="text-align: left; width: 100%;"><strong>Date:</strong> ${job.attributes.date}</p>
+                  <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                      ${imageUrl ? `<img src="${imageUrl}" alt="${job.attributes.title}" style="width: 80%; margin-bottom: 10px; border-radius: 8px;" />` : ''}
+                      <p class="category" style="text-align: left; width: 100%;"><strong>Category:</strong> ${job.attributes.category}</p>
+                      <div class="roles-responsibilities" style="text-align: left; width: 100%;">
+                          <h3 style="font-size: 20px; font-weight: bold;">Roles and Responsibilities:</h3>
+                          <ul style="font-size: 14px; line-height: 1.6;">
+                              ${rolesAndResponsibilitiesHtml.replace(/<p>/g, '<li>').replace(/<\/p>/g, '</li>')}
+                          </ul>
+                      </div>
+                      <p class="location" style="text-align: left; width: 100%; font-size: 16px;"><strong>Location:</strong> ${job.attributes.location}</p>
+                      <p class="date" style="text-align: left; width: 100%; font-size: 16px;"><strong>Date:</strong> ${job.attributes.date}</p>
                       <div class="form-container" style="text-align: left; width: 100%; margin-top: 20px;">
-                          <iframe
-                              id="JotFormIFrame-241966305117355"
-                              title="Clone of Apply Now"
-                              onload="window.parent.scrollTo(0,0)"
-                              allowtransparency="true"
-                              allow="geolocation; microphone; camera; fullscreen"
-                              src="https://form.jotform.com/241966305117355"
-                              frameborder="0"
-                              style="min-width:100%;max-width:100%;height:1800px;border:none;" <!-- Adjust height here -->
-                          ></iframe>
-                          <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-                          <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-241966305117355']", "https://form.jotform.com/")</script>
+                          <button class="text-button btn" style="margin-top: 16px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all,.1s,ease-in;">Apply Now</button>
                       </div>
                   </div>
               `;
 
-              jobItem.appendChild(jobTitle);
+              jobItem.appendChild(jobTitleElement);
               jobItem.appendChild(jobDetails);
               jobList.appendChild(jobItem);
 
               // Add event listener for toggling job details
-              jobTitle.addEventListener('click', (event) => {
+              jobTitleElement.addEventListener('click', (event) => {
                   event.preventDefault(); // Prevent default action
                   jobDetails.style.display = jobDetails.style.display === 'none' ? 'block' : 'none';
+              });
+
+              // Add event listener for the "Apply Now" button
+              const applyButton = jobDetails.querySelector('.text-button.btn');
+              applyButton.addEventListener('click', () => {
+                  jobTitle = job.attributes.title; // Set the job title for the form
+                  JFL_241966305117355.showForm();
               });
           });
       });
@@ -477,6 +613,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   fetchJobPostings();
 });
+
 
 function md_to_html(md) {
   const lines = md.split("\n");

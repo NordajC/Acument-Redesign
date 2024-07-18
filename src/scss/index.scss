@@ -262,7 +262,7 @@ $gradient-start: #FF0072; // Start color of the gradient
 $gradient-end: #2476FF ; // End color of the gradient
 
 //gradient button
-.btn {
+.btn,.btn-1 {
   padding: 5px 20px;
   border: none;
   outline: none;
@@ -380,6 +380,7 @@ $gradient-end: #2476FF ; // End color of the gradient
 }
 
 body, html {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -479,7 +480,7 @@ body, html {
   //   // display: block; // Default to display block
   // }
 
-  .text-button {
+  .text-button, .text-button-1 {
     // display: none; // Default to display none
     // background-color: #007BFF;
     // color: white;
@@ -489,6 +490,14 @@ body, html {
     // cursor: pointer;
     margin-left: 0.5em;
   }
+}
+
+.inline-btn-container{
+  display: flex;       /* Establishes a flex container */
+  // justify-content: space-between; /* Distributes space evenly between children */
+  align-items: center; /* Vertically centers the items in the container */
+  flex-direction: row;
+  margin-top: 0.5em;
 }
 
 
@@ -503,23 +512,32 @@ body, html {
   // max-width: 600px;
   width: 100vw;
   height: 100vh;
-  background-color: $background-color;
+  background-color: #171616;
+  overflow: scroll;
 }
 
 .modal-content {
-  background-color: $background-color;
+  background-color: #171616;
   width:  85vw;  /* Adjusts width to fit within the modal */
-  max-width: 600px; /* Optional, for better readability on larger screens */
+  max-width: 650px; /* Optional, for better readability on larger screens */
   max-height: 100%; /* Ensures content does not exceed the modal */
   // overflow: auto; /* Allows scrolling within the modal content if needed */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Distributes space around items */
   text-align: left;
-  margin: 2em auto;
-  padding: auto 3em;
+  padding: 2em 1em 2em 1em; /* Increase right padding */
+  // padding: auto 3em;
   font-size: calc(13px + 1vw);
+  scrollbar-width: none;
 }
+
+// .outer-modal-content{
+//   max-width: 700px; /* Optional, for better readability on larger screens */
+//   max-height: 100%; /* Ensures content does not exceed the modal */
+//   margin: 2em auto;
+//   padding: auto 3em;
+// }
 
 //center close button
 .center-btn{
@@ -534,8 +552,62 @@ body, html {
 
 .button-top-right {
   position: absolute;
-  top: 0;
-  right: 0;
+  right: 0em; /* Right alignment with padding */
+  top: 1.25em; /* Top alignment with padding */
+  background: none;
+  border: none;
+  color: inherit; /* Inherits the color from the parent or can be set explicitly */
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#our-founding-fathers-1{
+  margin: auto;
+
+}
+
+.founding-div{
+  width: 100%;
+  margin-top: 1em;
+  padding:auto;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.founder-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.founder-profile h3 {
+    font-size: 1.2em; /* 20% larger than the body text */
+}
+
+.founder-profile h4 {
+    font-size: 1.1em; /* 10% larger than the body text */
+    color: #fff;
+}
+
+.founder-profile p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .modal-content {
+        font-size: 16px; /* Larger base font-size for larger screens */
+    }
 }
 
 // Use for larger screens
@@ -550,6 +622,15 @@ body, html {
     display: none;
   }
   .text-container{
+    display: block;
+  }
+  #our-founding-fathers-1{
+    display: block;
+  }
+  .text-button-1{
+    display: block;
+  }
+  .btn-1{
     display: block;
   }
 }
@@ -569,6 +650,15 @@ body, html {
   }
   .text-container{
     display: none;
+  }
+  #our-founding-fathers-1{
+    display: hidden;
+  }
+  .text-button-1{
+    display: hidden;
+  }
+  .btn-1{
+    display: hidden;
   }
 }
 
@@ -701,7 +791,6 @@ p {
   min-height: 100%; // Ensures that all boxes take up the full height of the tallest box
   height: 100%;
   color: white;
-
   
   .value-text {
     margin-bottom: 20px; // Ensures consistent spacing for the title
@@ -717,11 +806,11 @@ p {
   }
   
   .value-title {
-    font-size: 2em; // Ensures visibility on all devices
+    font-size: 1.75em; // Ensures visibility on all devices
     text-transform: uppercase; // Style as seen in the image
-    color: #e63946; // Example color for the title
+    color: #fff; // Example color for the title
     // margin-top: auto; // Pushes the title to the bottom of the box
-    margin-bottom: -30px;
+    margin-bottom: -20px;
   }
 }
 
@@ -801,9 +890,49 @@ p {
   }
 }
 
+.value-img-1{
+  width: 50px;
+  height: 50px;
+  margin-bottom: -60px;
+  margin-left: -10px;
+  margin-top: -40px;
+  padding: 0;
+}
 
+.value-img-2{
+  width: 10px;
+  height: 10px;
+  scale: 0.7;
+  margin-bottom: -50px;
+  margin-top: -50px;
+  padding: 0;
+}
 
+.value-img-3{
+  width: 50px;
+  height: 50px;
+  margin-top: -45px;
+  margin-bottom: -50px;
+  padding: 0;
+}
 
+.value-img-4{
+  width: 50px;
+  height: 50px;
+  margin-bottom: -30px;
+  margin-top: -65px;
+  padding: 0;
+  filter: invert(1);
+}
+
+.value-img-5{
+  width: 45px;
+  height: 45px;
+  margin-bottom: -40px;
+  margin-top: -60px;
+  padding: 0;
+  filter: invert(1);
+}
 
 //services section
 // .service-tile {
@@ -999,60 +1128,137 @@ a{
 
 //value propositions 
 
-.value-propositions {
-  // background-color: #1b1b1b;
-  color: #ffffff;
-  padding: 2rem 1rem;
+// .value-propositions {
+//   // background-color: #1b1b1b;
+//   color: #ffffff;
+//   padding: 2rem 1rem;
 
-  .title {
-    color: #9e9e9e;
-  }
+//   .title {
+//     color: #9e9e9e;
+//   }
+
+//   .columns {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+
+//     .column {
+//       display: flex;
+//       flex-direction: column;
+
+//       .proposition {
+//         background: $background-color;
+//         border-radius: 5px;
+//         margin-bottom: 1rem;
+//         padding: 1rem;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+
+//         .proposition-header {
+//           display: flex;
+//           justify-content: space-between;
+//           cursor: pointer;
+//           padding: 0.5rem 0;
+//           font-weight: bold;
+//           border-bottom: 1px solid #444;
+//           text-align: center;
+//           min-height: 4rem;
+//           align-items: center;
+//           flex-direction: column;
+
+//           &:hover {
+//             color: #00d1b2;
+//           }
+//         }
+
+//         .proposition-dropdown {
+//           display: none;
+//           padding: 0.5rem 0;
+//         }
+
+//         .proposition-dropdown.visible {
+//           display: block;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.value-propositions {
+  color: #ffffff;
+  padding: 2rem 1rem; /* Adjust overall padding around the columns */
 
   .columns {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
 
-    .column {
+  .column {
+    display: flex;
+    flex-direction: column;
+
+    .proposition {
+      background: $background-color; /* Make sure this variable is defined or replace with a hex color */
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      padding: 0.5rem; /* Reduced padding */
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
 
-      .proposition {
-        background: #292929;
-        border-radius: 5px;
-        margin-bottom: 1rem;
-        padding: 1rem;
+      .proposition-header {
         display: flex;
+        justify-content: center; /* Centered content horizontally */
+        cursor: pointer;
+        padding: 0.5rem 0; /* Reduced padding to minimize space */
+        font-weight: bold;
+        // border-bottom: 1px solid #444;
+        text-align: center;
+        align-items: center; /* Ensures vertical centering of the SVG and text */
         flex-direction: column;
-        justify-content: space-between;
+        font-size: medium;
 
-        .proposition-header {
-          display: flex;
-          justify-content: space-between;
-          cursor: pointer;
-          padding: 0.5rem 0;
-          font-weight: bold;
-          border-bottom: 1px solid #444;
-          text-align: center;
-          min-height: 4rem;
-          align-items: center;
-
-          &:hover {
-            color: #00d1b2;
-          }
+        img {
+          height: auto; /* Adjust height automatically to maintain aspect ratio */
+          width: 80%; /* Adjust width to fit within the header */
         }
 
-        .proposition-dropdown {
-          display: none;
-          padding: 0.5rem 0;
+        &:hover {
+          color: #00d1b2;
         }
+      }
 
-        .proposition-dropdown.visible {
-          display: block;
-        }
+      .proposition-dropdown {
+        display: none;
+        padding: 0.5rem auto;
+        font-size: medium;
+        text-align: left;
+      }
+
+      .proposition-dropdown.visible {
+        display: block;
       }
     }
   }
+}
+
+.arrow {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* Add this within your .proposition-header:hover for interactive color change */
+.proposition-header:hover .arrow {
+  color: #00d1b2;
+}
+
+.proposition-title-row{
+  display: flex;
+  flex-direction: row;
 }
 
 
@@ -1061,34 +1267,102 @@ a{
 .get-in-touch {
   color: #ffffff;
   padding: 2rem 1rem;
+}
 
-  .title {
-    margin-bottom: 1rem;
+.title {
+  margin-bottom: 1rem;
+}
+
+.content {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between; /* Space columns evenly */
+  align-items: flex-start; /* Vertical alignment */
+}
+
+.footer-column {
+  flex: 1; /* Equal width for each column */
+  text-align: center; /* Center the content of columns */
+}
+
+.office {
+  color: #9e9e9e;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.location {
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+p i {
+  color: #00d1b2;
+  margin-right: 0.5rem;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .content {
+      flex-direction: column; /* Stack columns vertically */
+      align-items: center; /* Center align the items when stacked */
   }
 
-  .content {
-    font-size: 1rem;
-    
-    .office {
-      color: #9e9e9e;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
+  .footer-column {
+      text-align: left; /* Align text to the left in mobile view */
+      flex: none; /* Remove flex sizing */
+      width: 100%; /* Full width for each column */
+      margin-bottom: 20px; /* Add some space between stacked columns */
+  }
 
-    .location {
-      color: #ffffff;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    p {
-      margin: 0.5rem 0;
-
-      i {
-        color: #00d1b2;
-        margin-right: 0.5rem;
-      }
-    }
+  .footer-column:last-child {
+      margin-bottom: 0; /* No bottom margin for the last column */
   }
 }
 
+
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #282626; // Track color
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2476FF; // Scrollbar thumb color
+  border-radius: 10px; // Roundness of the scrollbar thumb
+  border: 2px solid #282626; // Creates padding around scrollbar thumb
+  cursor: grab; // Change cursor to grab
+
+  &:hover {
+      background-color: #FF0072; // Thumb hover color
+  }
+
+  &:active {
+      cursor: grabbing; // Change cursor to grabbing when active
+  }
+}
+
+/* Remove navbar hover backgrounds */
+.navbar {
+  .navbar-burger:hover {
+      background-color: transparent !important;
+  }
+
+  .navbar-item:hover {
+      background-color: transparent !important;
+  }
+}
+
+.navbar-hidden {
+  display: none;
+}

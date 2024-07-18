@@ -376,7 +376,7 @@ export interface ApiJobJob extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     category: Attribute.String & Attribute.Required;
     roles_and_responsibilities: Attribute.RichText & Attribute.Required;
-    image: Attribute.Media<'images'> & Attribute.Required;
+    image: Attribute.Media<'images'>;
     date: Attribute.Date & Attribute.Required;
     location: Attribute.Text & Attribute.Required;
     createdAt: Attribute.DateTime;

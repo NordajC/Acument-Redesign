@@ -24,6 +24,7 @@
 
     <link rel="stylesheet" href="../css/index.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Acument</title>
   </head>
   <body>
@@ -86,16 +87,13 @@
           <a class="navbar-item" href="#services">
             Services
           </a>
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="#jobs">
             Job Listings
           </a>
-          <a class="navbar-item" href="#">
-            Services
-          </a>
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="#Propersitions">
             Unique Propersitions
           </a>
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="#contact">
             Get In Touch
           </a>
         </div>
@@ -134,7 +132,7 @@
       });
     </script> -->
     
-    <section class="hero is-small scroll-snap" style="padding: 0rem">
+    <section id="home" class="hero is-small scroll-snap" style="padding: 0rem">
       <div class="hero-body center-div">
         <h1 class="hero-title text-center hero-top-margin">Your path to</h1>
         <h1 class="gradient-text hero-title bold text-center">
@@ -147,13 +145,16 @@
       </div>
       <div class="text-container" style="display: hidden;">
         <div class="text-content">
-          <div class="about-us-container">
+          <div class="about-us-container" id="about">
             <div class="titles-container">
               <div class="left-border">
                 <h2 class="gradient-text semi-bold left-border"> About Us</h2>
               </div>
               
               <h2>IT Consulting and Sourcing Company specializing in digital, data, and engineering areas.</h2>
+              <div class="founding-div">
+                <button id="our-founders-1" class="text-button-1 btn-1 center-btn">Our Founders &#11106;</button>
+              </div>
             </div>
             <div class="description-container">
               <p>
@@ -168,35 +169,67 @@
           Originating from humble roots in Hong Kong, our boutique consultancy
           has since expanded its presence to the vibrant city of Singapore.
         </div>
-        <br />
-        <button class="text-button btn">Our Story &nbsp; &#11106;</button>
+        <!-- <br /> -->
+        <div class="inline-btn-container">
+          <button class="text-button btn">Our Story &nbsp; &#11106;</button>
+          <button id="our-founders" class="text-button btn">Our Founders &#11106;</button>
+        </div>
       </div>
 
       <div class="modal" id="myModal">
-        <div class="modal-content">
-          <h2>ACUMENT GROUP: Your Path to Digital Excellence !</h2>
-          <br />
-          <p>
-            Originating from humble roots in Hong Kong, our boutique consultancy
-            has since expanded its presence to the vibrant city of Singapore.
-            With a proven track record in Hong Kong, we offer tailored solutions
-            ranging from direct consultancy engagements to niche talent
-            sourcing, ensuring our clients' projects receive the attention and
-            expertise they deserve. Our team composes of delivery mindset
-            individuals with extensive digital product experience to offer
-            invaluable insights and support to help drive our clients’ digital
-            growth. With a hands-on approach and boots on the ground mentality,
-            Acument is known for our commitment to fast response and a
-            customer-centric approach that puts our clients success at the
-            forefront.
-          </p>
-          <br />
-          <span class="close button-top-right">&#10005</span>
+        <div class="outer-modal-content">
+          <div class="modal-content">
+            <h2>ACUMENT GROUP: Your Path to Digital Excellence !</h2>
+            <br />
+            <p>
+              Originating from humble roots in Hong Kong, our boutique consultancy
+              has since expanded its presence to the vibrant city of Singapore.
+              With a proven track record in Hong Kong, we offer tailored solutions
+              ranging from direct consultancy engagements to niche talent
+              sourcing, ensuring our clients' projects receive the attention and
+              expertise they deserve. Our team composes of delivery mindset
+              individuals with extensive digital product experience to offer
+              invaluable insights and support to help drive our clients’ digital
+              growth. With a hands-on approach and boots on the ground mentality,
+              Acument is known for our commitment to fast response and a
+              customer-centric approach that puts our clients success at the
+              forefront.
+            </p>
+            <br />
+            <span class="close button-top-right">&#10005</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="our-founders-modal">
+        <div class="outer-modal-content">
+          <div class="modal-content">
+            <h2>Meet Our Founders</h2>
+            
+            <div class="founder">
+                <img src="../assets/web images/Clement.jpg" alt="Clément Tran" class="founder-image">
+                <h3>Clément Tran</h3>
+                <h4>Managing Director</h4>
+                <p>Graduated from an MSc in Entrepreneurship and Innovation in France, Clément has been working in Hong Kong for the past 8 years spearheading transformative partnerships with Corporate giants to elevate their digital experience.</p>
+                <p>Before founding Acument with Damien, Clément demonstrated a commitment extends beyond business growth with his clients. He champions customer success, ensuring his clients achieve their goals seamlessly, solidifying his reputation as a trusted ally in navigating complex business challenges.</p>
+            </div>
+            
+            <div class="founder">
+                <img src="../assets/web images/Damien_Photo Pro.jpg" alt="Damien Tran" class="founder-image">
+                <h3>Damien Tran</h3>
+                <h4>Managing Director</h4>
+                <p>Damien graduated with an MSc in Corporate Finance in France, Damien honed his expertise across Paris, Shanghai, and Hong Kong. Over the past 8 years, alongside his twin brother, Clément, Damien co-founded Acument. With a rich background spanning consulting firms and MNCs, Damien spearheads digital transformation initiatives, driving organizational change through innovative tools and cultural advocacy.</p>
+                <p>Known as a catalyst for cultural shifts, Damien's unwavering dedication to excellence ensures the success of customer projects, firmly establishing him as a stalwart advocate for customer success.</p>
+            </div>
+      
+            <br />
+            <span id="our-founders-close" class="close button-top-right">&#10005</span>
+          </div>
         </div>
       </div>
     </section>
     <br>
-    <section class="section">
+    <section class="section" id="values">
       <div class=" full-width">
         <div class="left-border">
           <h2 class="gradient-text semi-bold left-border">Our Core Values</h2>
@@ -205,9 +238,9 @@
         <br>
           <div class="columns is-multiline">
               <div class="column is-one-third">
-                  <div class="value-box passionate box stop-hover-animation btn ">
+                  <div class="value-box passionate box value-gradient-hover">
                       <div class="value-title-container">
-                        <h3 class="title is-4 gradient-text value-title">PASSIONATE</h3>
+                        <h3 class="title is-4 value-title">PASSIONATE</h3>
                       </div>
                       <p class="value-text">Passion drives and ensures each of engagement is met with unparalleled dedication and expertise. With fervor as our compass, we strive to deliver exceptional results.</p>
                       
@@ -216,15 +249,15 @@
               <div class="column is-one-third">
                   <div class="value-box agile box value-gradient-hover">
                     <div class="value-title-container">
-                      <h3 class="title is-4 gradient-text value-title">AGILE</h3>
+                      <h3 class="title is-4 value-title">AGILE</h3>
                     </div>
                       <p class="value-text">No matter how big we get, our decision-making remains razor-sharp, tethered to the pulse of the industry. Our bond with clients empowers us to swiftly anticipate and adapt to shifts, ensuring our agility amidst growth.</p>
                   </div>
               </div>
               <div class="column is-one-third">
-                  <div class="value-box collaborative box stop-hover-animation btn">
+                  <div class="value-box collaborative box value-gradient-hover">
                     <div class="value-title-container">
-                      <h3 class="title is-4 gradient-text value-title">COLLABORATIVE</h3>
+                      <h3 class="title is-4 value-title">COLLABORATIVE</h3>
                     </div>
                       <p class="value-text">Our clients aren't just partners, but our allies. Their success is an essential condition to our teams. Together, we synchronize our strategy with their paramount goals and objectives.</p>
                   </div>
@@ -232,7 +265,7 @@
           </div>
       </div>
   </section>
-  <section class="section">
+  <section class="section" id="services">
     <div class="left-border ">
       <h2 class="gradient-text semi-bold left-border">Our Services</h2>
     </div>
@@ -262,23 +295,23 @@
       </div>
 
       <div class="modal" id="digital-case">
-        <div class="modal-content">
-          <div class="left-border ">
-            <h2 class="gradient-text semi-bold left-border">Improve Customer Journey of VIP Guests</h2>
+          <div class="modal-content">
+            <div class="left-border ">
+              <h2 class="gradient-text semi-bold left-border">Improve Customer Journey of VIP Guests</h2>
+            </div>
+            <br />
+            <img src="../assets/web images/DATA3-AdobeStock_814093692.jpeg">
+            <br>
+            <p>
+              Our Client is a world renowned actor in the hospitality industry aiming to provide the best customer experience to their top 1% spenders.
+              <br><br>
+              We focused on optimizing the customer journey and enhancing with digital solutions. We provided the whole scrum team consisting of Product Owners, UX Designers, Business Analysts and few Full-Stack developers to conduct user research and develop new mobile applications following best technology practices i.e. Cloud Native, native app iOS/Android development, Agile, DevOps.
+              <br><br>
+              New features released included Booking (hotel, concerts, dinner, transportation) and Redemption (Chips,Vouchers) and delivery was on-time and within budget. NPS survey indicates strong customer satisfaction and retention. Usage of Mobile app is high which allows to collect and analyse customer data and design more personalised marketing campaigns.
+            </p>
+            <br />
+            <span id="digital-case-close" class="close button-top-right">&#10005</span>
           </div>
-          <br />
-          <img src="../assets/web images/DATA3-AdobeStock_814093692.jpeg">
-          <br>
-          <p>
-            Our Client is a world renowned actor in the hospitality industry aiming to provide the best customer experience to their top 1% spenders.
-            <br><br>
-            We focused on optimizing the customer journey and enhancing with digital solutions. We provided the whole scrum team consisting of Product Owners, UX Designers, Business Analysts and few Full-Stack developers to conduct user research and develop new mobile applications following best technology practices i.e. Cloud Native, native app iOS/Android development, Agile, DevOps.
-            <br><br>
-            New features released included Booking (hotel, concerts, dinner, transportation) and Redemption (Chips,Vouchers) and delivery was on-time and within budget. NPS survey indicates strong customer satisfaction and retention. Usage of Mobile app is high which allows to collect and analyse customer data and design more personalised marketing campaigns.
-          </p>
-          <br />
-          <span id="digital-case-close" class="close button-top-right">&#10005</span>
-        </div>
       </div>
 
       <!-- Data -->
@@ -382,24 +415,40 @@
         padding: 10px 0;
         white-space: nowrap;
     }
+    .job-category-menu::-webkit-scrollbar {
+        height: 5px; /* Make the horizontal scrollbar thinner */
+        cursor: grab; /* Change cursor to grab */
+    }
+    .job-category-menu::-webkit-scrollbar-thumb {
+        background-color: #2476FF; /* Scrollbar thumb color */
+        border-radius: 10px; /* Roundness of the scrollbar thumb */
+        border: 1px solid #282626; /* Creates padding around scrollbar thumb */
+    }
+    .job-category-menu::-webkit-scrollbar-thumb:hover {
+        background-color: #FF0072; /* Thumb hover color */
+    }
+    .job-category-menu::-webkit-scrollbar-thumb:active {
+        cursor: grabbing; /* Change cursor to grabbing when active */
+    }
+    .job-category-menu::-webkit-scrollbar-track {
+        background: #282626; /* Track color */
+    }
     .job-category-button {
-    background: transparent;
-    border: none;
-    color: #E0E0E0;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.job-category-button:hover {
-    color: #00d1b2;
-}
-
-.job-category-button.active {
-    color: #00d1b2;
-    border-bottom: 2px solid #00d1b2;
-}
+        background: transparent;
+        border: none;
+        color: #E0E0E0;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .job-category-button:hover {
+        color: #00d1b2;
+    }
+    .job-category-button.active {
+        color: #00d1b2;
+        border-bottom: 2px solid #00d1b2;
+    }
     .job-list {
         margin-top: 20px;
     }
@@ -408,6 +457,7 @@
         padding: 20px;
         margin-bottom: 10px;
         border-radius: 8px;
+        background-color: #333;
     }
     .job-title {
         margin: 0;
@@ -418,26 +468,27 @@
         margin-top: 10px;
     }
     .job-details img {
-        max-width: 100%;
+        max-width: 80%; /* Increase the max-width to 80% */
+        margin: 0 auto 10px;
+        display: block;
         border-radius: 8px;
     }
-
     .job-info-and-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.job-details .location, 
-.job-details .date, 
-.job-details .form-container {
-    text-align: left;
-    width: 100%;
-}
-
-.job-details .form-container {
-    margin-top: 20px;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .job-details .location, 
+    .job-details .date {
+        text-align: left;
+        width: 100%;
+        font-size: 16px; /* Increased font size */
+    }
+    .job-details .form-container {
+        text-align: left;
+        width: 100%;
+        margin-top: 20px;
+    }
     .form-container {
         width: 100%;
         margin: 0;
@@ -452,23 +503,61 @@
         padding: 0;
         background: transparent;
     }
+    .roles-responsibilities {
+        padding-left: 20px;
+        text-align: left; /* Align text to the left */
+    }
+    .roles-responsibilities ul {
+        padding-left: 20px;
+        list-style-type: disc;
+    }
+    .roles-responsibilities ul li {
+        margin-bottom: 5px;
+    }
+    .category {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .roles-responsibilities h3 {
+        margin-bottom: 10px;
+    }
+    /* Media queries for mobile responsiveness */
+    @media (max-width: 768px) {
+        .job-details img {
+            max-width: 100%;
+        }
+        .job-item {
+            padding: 15px;
+        }
+        .job-details .location, 
+        .job-details .date {
+            font-size: 14px; /* Adjust font size for mobile */
+        }
+        .roles-responsibilities ul {
+            padding-left: 15px;
+        }
+    }
 </style>
-<section class="section">
-    <div class="container">
-      <div class="left-border">
-        <h2 class="gradient-text semi-bold left-border">Job Listings</h2>
-      </div>
-        <div id="category-menu" class="job-category-menu"></div>
-        <div id="job-list" class="job-list"></div>
-    </div>
-</section>
+
+<script src="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
+
+    <section class="section" id="jobs">
+        <div class="container job-container">
+          <div class="left-border">
+            <h2 class="gradient-text semi-bold left-border">Job Listings</h2>
+            </div>
+            <div id="category-menu" class="job-category-menu"></div>
+            <div id="job-list" class="job-list"></div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+
 
 
 
 
 <script src="index.js"></script>
-
-  <section class="value-propositions">
+  <section class="value-propositions" id="Propersitions">
     <div class="container">
       <div class="left-border">
         <h2 class="gradient-text semi-bold left-border">Unique Value Propositions</h2>
@@ -477,9 +566,14 @@
         <div class="columns is-mobile is-multiline">
             <div class="column is-one-fifth-desktop is-full-mobile">
                 <div class="proposition">
-                    <img src="" alt="">
-                    <div class="proposition-header" onclick="toggleDropdown('dropdown1')">
-                        <span>Agile and Responsive</span>
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown1', this)">
+                        <img src="../assets/web images/1-noun-iteration-5762902.svg" class="value-img-1">
+                        <div class="proposition-title-row">
+                          <span>
+                            Agile & Responsive<div class="arrow">&#9660;</div>
+                          </span>
+                        </div>
+                        
                     </div>
                     <div id="dropdown1" class="proposition-dropdown">
                         <p>Our compact size allows us to tailor solutions and react swiftly to clients needs.</p>
@@ -488,8 +582,12 @@
             </div>
             <div class="column is-one-fifth-desktop is-full-mobile">
                 <div class="proposition">
-                    <div class="proposition-header" onclick="toggleDropdown('dropdown2')">
-                        <span>Always Available</span>
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown2',this)">
+                        <img src="../assets/web images/2-noun-timing-4171169.svg" class="value-img-2">
+                        <div class="proposition-title-row">
+                          <span>Always Available<div class="arrow">&#9660;</div></span>
+                        </div>
+                        
                     </div>
                     <div id="dropdown2" class="proposition-dropdown">
                         <p>Our Account Managers are available 24x7, so you get immediate answers, minimize downtime & maximize productivity.</p>
@@ -498,8 +596,12 @@
             </div>
             <div class="column is-one-fifth-desktop is-full-mobile">
                 <div class="proposition">
-                    <div class="proposition-header" onclick="toggleDropdown('dropdown3')">
-                        <span>Dedicated Partnership</span>
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown3',this)">
+                        <img src="../assets/web images/3-noun-handshake-6973331.svg" class="value-img-3">
+                        <div class="proposition-title-row">
+                          <span>Dedicated Partnership <div class="arrow">&#9660;</div></span>
+                        </div>
+
                     </div>
                     <div id="dropdown3" class="proposition-dropdown">
                         <p>We roll up our sleeves, becoming an extension of your team. Our combined 30+ years of experience bringing deep expertise to your specific challenges.</p>
@@ -508,8 +610,10 @@
             </div>
             <div class="column is-one-fifth-desktop is-full-mobile">
                 <div class="proposition">
-                    <div class="proposition-header" onclick="toggleDropdown('dropdown4')">
-                        <span>Uncompromising Performance</span>
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown4', this)">
+                        <img src="../assets/web images/4-noun-kpi-6697853.svg" class="value-img-4">
+                        <div class="proposition-title-row"><span>Uncompromising Performance <div class="arrow">&#9660;</div></span></div>
+                        
                     </div>
                     <div id="dropdown4" class="proposition-dropdown">
                         <p>We deliver results and willing to commit to a high-performing replacement within 2 weeks for offshore resources ensure seamless continuity and progress.</p>
@@ -518,8 +622,9 @@
             </div>
             <div class="column is-one-fifth-desktop is-full-mobile">
                 <div class="proposition">
-                    <div class="proposition-header" onclick="toggleDropdown('dropdown5')">
-                        <span>Cost Optimization</span>
+                    <div class="proposition-header" onclick="toggleDropdown('dropdown5', this)">
+                        <img src="../assets/web images/5-noun-business-6012345.svg" class="value-img-5">
+                        <div class="proposition-title-row"><span>Cost Optimization</span> <div class="arrow">&#9660;</div></div>
                     </div>
                     <div id="dropdown5" class="proposition-dropdown">
                         <p>We offer competitive rates that our clients find are a great value on their return on investment (ROI).</p>
@@ -531,24 +636,55 @@
   </section> 
 
   <section class="get-in-touch">
-    <div class="container">
-      <div class="left-border">
-        <h2 class="gradient-text semi-bold left-border">Get In Touch</h2>
+    <div class="container" style="display: flex; align-items: center; padding-left: 10px;">
+        <h2 class="gradient-text semi-bold left-border">&nbsp; Get In Touch</h2>
+        <a class="text-button btn services-button lightbox-241965891963373" style="margin-left: 32px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all, .1s, ease-in; font-weight: bold;" onclick="JFL_241965891963373.show()">&nbsp; → &nbsp;</a>
       </div>
-        <div class="content">
-            <p class="office">Email Address</p>
-            <p><i class="fas fa-envelope"></i> inquiry@acumentgroup.com</p>
-
-            <p class="office">Headquarter Office</p>
-
+    <div class="content">
+        <br>
+        <div class="footer-column" id="contact">
+            <p>Contact Us</p>
+            <a href="mailto:Inquiry@acumentgroup.com" class="footer-link"><i class="fas fa-envelope" style="text-decoration: none;"></i> Email</a>
+        </div>
+        <br>
+        <div class="footer-column">
+            <p>Follow Us</p>
+            <a href="https://www.facebook.com/profile.php?id=61550807954843" target="_blank" class="footer-link" style="text-decoration: none;"><i class="fa fa-facebook"></i> Facebook</a>
+            <br>
+            <a href="https://www.linkedin.com/company/acument-group/posts/?feedView=all" target="_blank" class="footer-link" style="text-decoration: none;"><i class="fa fa-linkedin"></i> LinkedIn</a>
+            <br>
+        </div>
+        <div class="footer-column">
+            <p class="office">Find Us</p>
             <p class="location">Hong Kong</p>
             <p><i class="fas fa-map-marker-alt"></i> Billion Plaza 2, 17/F, Room 5A, 10 Cheung Yue Street, Lai Chi Kok, Hong Kong</p>
-            
             <p class="location">Singapore</p>
             <p><i class="fas fa-map-marker-alt"></i> 16 Raffles Quay, #41-01 Hong Leong Building, Singapore 048581</p>
         </div>
     </div>
-  </section>
+</section>
+
+
+
+    
+
+<script src="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var JFL_241965891963373 = new JotformFeedback({
+            formId: '241965891963373',
+            base: 'https://form.jotform.com/',
+            windowTitle: 'Contact Us',
+            backgroundColor: '#1C1C1C',
+            fontColor: '#FFFFFF',
+            type: 'false',
+            height: 500,
+            width: 700,
+            openOnLoad: false
+        });
+    </script>
+    <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+
+
   <section>
     <footer style="background-color: #282626; padding: 40px 20px; text-align: center; margin-top: auto; display: flex; justify-content: center; align-items: center;">
           <div style="max-width: 90vw; margin: 0 auto;">
