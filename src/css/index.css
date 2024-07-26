@@ -23577,7 +23577,7 @@ body, html {
   object-fit: cover; /* Ensure the image covers the entire area without distortion */
   display: block;
   margin: 0 auto; /* Center the image horizontally */
-  transform: translateY(-5%);
+  transform: translateY(-6%);
 }
 
 @media (max-width: 768px) {
@@ -23604,6 +23604,11 @@ body, html {
   .hero {
     margin: 0;
     padding: 0;
+  }
+}
+@media (min-width: 1024px) {
+  #hero-img {
+    transform: translateY(-12%);
   }
 }
 .full-height {
@@ -23666,6 +23671,33 @@ body, html {
   scrollbar-width: none;
 }
 
+@media (min-width: 768px) {
+  #our-founders-modal-content {
+    width: 100%; /* Adjusts width to fit within the modal */
+    max-width: 800px; /* Optional, for better readability on larger screens */
+  }
+  .image-wrap-left {
+    float: left;
+    margin-right: 25px;
+    width: 35%;
+  }
+  .image-wrap-left img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .image-wrap-right {
+    float: right;
+    margin-left: 25px;
+    width: 35%;
+  }
+  .text-wrap h3.founders-name {
+    margin-top: 0;
+  }
+  .founder {
+    width: 100%;
+  }
+}
 .center-btn {
   width: auto;
   margin: auto;
@@ -23700,25 +23732,27 @@ body, html {
   justify-self: center;
 }
 
-.founder-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 20px;
+.founder-images {
+  border-radius: 2px;
 }
 
-.founder-profile h3 {
-  font-size: 1.2em; /* 20% larger than the body text */
+.founder-name {
+  font-size: 2.25em; /* 20% larger than the body text */
+  font-weight: bold;
 }
 
-.founder-profile h4 {
-  font-size: 1.1em; /* 10% larger than the body text */
+.founder-title {
+  font-size: 1.5em; /* 10% larger than the body text */
   color: #fff;
 }
 
 .founder-profile p {
   line-height: 1.6;
   margin-bottom: 10px;
+}
+
+.justified {
+  text-align: justify;
 }
 
 .close {
@@ -23871,8 +23905,13 @@ p {
   color: white;
 }
 .value-box .value-text {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   text-align: center;
+  font-size: 20px;
+  margin-top: -20px;
+  align-self: start;
+  align-items: flex-start;
+  flex-direction: column;
 }
 .value-box .value-title-container {
   background-color: #282626;
@@ -23881,16 +23920,25 @@ p {
   overflow: visible;
 }
 .value-box .value-title {
-  font-size: 1.75em;
   text-transform: uppercase;
   color: #fff;
   margin-bottom: -20px;
+  white-space: nowrap;
 }
 
 .value-box:hover {
   background-color: none;
 }
 
+@media (min-width: 768px) {
+  .value-title {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: -20px;
+    white-space: nowrap;
+  }
+}
 @media (max-width: 767px) {
   .columns {
     grid-template-columns: 1fr;
@@ -23898,6 +23946,12 @@ p {
   }
   .section {
     margin: 5px;
+  }
+  .value-title {
+    font-size: 1.75em;
+  }
+  .value-text {
+    font-size: 14px;
   }
 }
 .stop-hover-animation:hover {
@@ -23979,20 +24033,22 @@ p {
 }
 
 .value-img-4 {
-  width: 50px;
-  height: 50px;
+  scale: 0.9;
+  width: 45px;
+  height: 45px;
   margin-bottom: -30px;
   margin-top: -65px;
   padding: 0;
   filter: invert(1);
+  transform: translateY(1.25em);
 }
 
 .value-img-5 {
-  width: 45px;
-  height: 45px;
+  scale: 0.8;
   margin-bottom: -40px;
   margin-top: -60px;
   padding: 0;
+  transform: translateY(0.5em);
   filter: invert(1);
 }
 
@@ -24113,54 +24169,141 @@ a {
   text-decoration: none;
 }
 
-.value-propositions {
-  color: #ffffff;
-  padding: 2rem 1rem; /* Adjust overall padding around the columns */
+@media (min-width: 769px) {
+  .value-propositions {
+    color: #ffffff;
+    padding: 2rem 1rem; /* Adjust overall padding around the columns */
+  }
+  .value-propositions .columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .value-propositions .column {
+    display: flex;
+    flex-direction: column;
+  }
+  .value-propositions .column .proposition {
+    background: #282626; /* Make sure this variable is defined or replace with a hex color */
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding: 0.5rem; /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .value-propositions .column .proposition .proposition-header {
+    display: flex;
+    justify-content: center; /* Centered content horizontally */
+    cursor: pointer;
+    padding: 0.5rem 0; /* Reduced padding to minimize space */
+    font-weight: bold;
+    text-align: center;
+    align-items: center; /* Ensures vertical centering of the SVG and text */
+    flex-direction: column;
+    font-size: medium;
+    height: 120px;
+    margin-top: 3rem;
+  }
+  .value-propositions .column .proposition .proposition-header img {
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
+    width: 80%; /* Adjust width to fit within the header */
+  }
+  .value-propositions .column .proposition .proposition-header:hover {
+    color: #00d1b2;
+  }
+  .value-propositions .column .proposition .proposition-dropdown {
+    display: none;
+    padding: 0.5rem auto;
+    font-size: medium;
+    text-align: center;
+    margin-top: 2em;
+  }
+  .value-propositions .column .proposition .proposition-dropdown.visible {
+    display: block;
+  }
+  .value-propositions .min-height-dropdown {
+    min-height: 3em;
+    text-align: center;
+    margin: auto;
+  }
 }
-.value-propositions .columns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+@media (max-width: 768px) {
+  .value-propositions {
+    color: #ffffff;
+    padding: 2rem 1rem; /* Adjust overall padding around the columns */
+    height: auto;
+  }
+  .value-propositions .columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .value-propositions .column {
+    display: flex;
+    flex-direction: column;
+  }
+  .value-propositions .column .proposition {
+    background: #282626; /* Make sure this variable is defined or replace with a hex color */
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    padding: 1rem; /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .value-propositions .column .proposition .proposition-header {
+    display: flex;
+    justify-content: center; /* Centered content horizontally */
+    cursor: pointer;
+    padding: 0.5rem 0; /* Reduced padding to minimize space */
+    font-weight: bold;
+    text-align: center;
+    align-items: center; /* Ensures vertical centering of the SVG and text */
+    flex-direction: column;
+    font-size: medium;
+    height: 120px;
+    margin-top: 5rem;
+  }
+  .value-propositions .column .proposition .proposition-header img {
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
+    width: 80%; /* Adjust width to fit within the header */
+  }
+  .value-propositions .column .proposition .proposition-header:hover {
+    color: #00d1b2;
+  }
+  .value-propositions .column .proposition .proposition-dropdown {
+    display: none;
+    padding: 0.5rem auto;
+    font-size: medium;
+    text-align: center;
+    margin-top: 2em;
+  }
+  .value-propositions .column .proposition .proposition-dropdown.visible {
+    display: block;
+  }
+  .cost-top-margin {
+    margin-top: 1rem;
+  }
+  .value-img-5 {
+    scale: 0.8;
+    margin-bottom: -40px;
+    margin-top: 0px;
+    padding: 0;
+    filter: invert(1);
+  }
+  .value-img-2 {
+    scale: 0.8;
+    margin-top: -5vh;
+    padding: 0;
+  }
 }
-.value-propositions .column {
-  display: flex;
-  flex-direction: column;
+.proposition-title-text {
+  font-size: 1.5rem;
 }
-.value-propositions .column .proposition {
-  background: #282626; /* Make sure this variable is defined or replace with a hex color */
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  padding: 0.5rem; /* Reduced padding */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.value-propositions .column .proposition .proposition-header {
-  display: flex;
-  justify-content: center; /* Centered content horizontally */
-  cursor: pointer;
-  padding: 0.5rem 0; /* Reduced padding to minimize space */
-  font-weight: bold;
-  text-align: center;
-  align-items: center; /* Ensures vertical centering of the SVG and text */
-  flex-direction: column;
-  font-size: medium;
-}
-.value-propositions .column .proposition .proposition-header img {
-  height: auto; /* Adjust height automatically to maintain aspect ratio */
-  width: 80%; /* Adjust width to fit within the header */
-}
-.value-propositions .column .proposition .proposition-header:hover {
-  color: #00d1b2;
-}
-.value-propositions .column .proposition .proposition-dropdown {
-  display: none;
-  padding: 0.5rem auto;
-  font-size: medium;
-  text-align: left;
-}
-.value-propositions .column .proposition .proposition-dropdown.visible {
-  display: block;
+
+.dropdown-text {
+  margin: 6rem 0;
 }
 
 .arrow {
@@ -24178,6 +24321,9 @@ a {
 .proposition-title-row {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .get-in-touch {
@@ -24217,9 +24363,33 @@ p {
   margin: 0.5rem 0;
 }
 
-p i {
-  color: #00d1b2;
+i {
+  color: #fff;
   margin-right: 0.5rem;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 57.5px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
 }
 
 /* Media Query for Mobile Devices */
@@ -24270,6 +24440,100 @@ p i {
 
 .navbar-hidden {
   display: none;
+}
+
+.founders-name {
+  font-size: 2rem;
+}
+
+.founding-role {
+  font-size: large;
+}
+
+.founding-description {
+  font-size: small;
+}
+
+.min-width-btn {
+  min-width: 0px;
+}
+
+.min-height-dropdown {
+  min-height: 3.25em;
+  text-align: center;
+}
+
+.bot-border {
+  border-bottom: #fff 2px solid;
+}
+
+.get-in-touch .container {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  align-items: flex-start; /* Aligns items at the start of the container */
+  background-color: #282626;
+}
+
+.header {
+  width: 100%; /* Full width to center the title */
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: flex;
+  width: 95%; /* Takes full width of container */
+  background-color: #282626;
+  margin: 0 auto;
+}
+
+.location-column, .contact-column {
+  flex: 1; /* Each column takes equal space */
+  margin: 10px; /* Adds margin around each column */
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Centers items in columns */
+}
+
+.contact-us, .follow-us {
+  width: 100%; /* Full width for alignment */
+  text-align: center; /* Centers the text */
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center; /* Centers social icons horizontally */
+  gap: 20px; /* Space between social icons */
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* Stacks columns vertically on smaller screens */
+    width: 100%; /* Takes full width of container */
+    align-items: left; /* Centers items in columns */
+    margin: 0;
+    padding: 0;
+  }
+  .contact-us, .follow-us {
+    width: 100%; /* Full width for alignment */
+    text-align: left; /* Centers the text */
+    margin-bottom: 20px;
+  }
+  .social-links {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left; /* Centers the text */
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
