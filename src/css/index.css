@@ -24535,5 +24535,10 @@ i {
     text-align: left; /* Centers the text */
   }
 }
+@media (max-width: 768px) {
+  .reverse-mobile {
+    flex-direction: column-reverse;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */
