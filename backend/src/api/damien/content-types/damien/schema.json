@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "damiens",
+  "info": {
+    "singularName": "damien",
+    "pluralName": "damiens",
+    "displayName": "Damien"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "required": true,
+      "default": "Damien graduated with a Masters of Science in Corporate Finance in France, Damien honed his expertise across Paris, Shanghai, and Hong Kong. Over the past 8 years, alongside his twin brother, Clément, Damien co-founded Acument. With a rich background spanning consulting firms and MNCs, Damien spearheads digital transformation initiatives, driving organizational change through innovative tools and cultural advocacy. Known as a catalyst for cultural shifts, Damien's unwavering dedication to excellence ensures the success of customer projects, firmly establishing him as a stalwart advocate for customer success."
+    },
+    "avatar": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

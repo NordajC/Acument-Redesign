@@ -613,9 +613,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   fetchJobPostings();
-  fetchInfo("title");
-  fetchInfo("category");
+  fetchInfo2('jobs', 'category');
 });
+
+async function fetchInfo2(collection , entry) {
+  try {
+      const response = await fetch(`https://supportive-action-24aa34bd56.strapiapp.com/api/${collection}?populate=*`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      const json_response = await response.json();
+      console.log('Response JSON', json_response.data[0].attributes[entry]);
+      // console.log('Response JSON', json_response);
+    } catch (error) {
+      console.error('Error fetching job postings:', error);
+  }
+}
 
 // info must be a string
 async function fetchInfo(info) {

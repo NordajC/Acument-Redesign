@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "data_privacies",
+  "info": {
+    "singularName": "data-privacy",
+    "pluralName": "data-privacies",
+    "displayName": "Data Privacy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "policy_description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

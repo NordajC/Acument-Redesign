@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "clements",
+  "info": {
+    "singularName": "clement",
+    "pluralName": "clements",
+    "displayName": "clement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "default": "Graduated with a Masters of Science in Entrepreneurship and Innovation from France, Clément has been working in Hong Kong for the past 8 years spearheading transformative partnerships with Corporate giants to elevate their digital experience. Before founding Acument with Damien, Clément demonstrated a commitment extends beyond business growth with his clients. He champions customer success, ensuring his clients achieve their goals seamlessly, solidifying his reputation as a trusted ally in navigating complex business challenges.",
+      "required": true
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

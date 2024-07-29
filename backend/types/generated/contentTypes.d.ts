@@ -362,43 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiJobJob extends Schema.CollectionType {
-  collectionName: 'jobs';
-  info: {
-    singularName: 'job';
-    pluralName: 'jobs';
-    displayName: 'job';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    category: Attribute.String & Attribute.Required;
-    roles_and_responsibilities: Attribute.RichText & Attribute.Required;
-    image: Attribute.Media<'images'>;
-    date: Attribute.Date & Attribute.Required;
-    location: Attribute.Text & Attribute.Required;
-    description: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 25;
-        maxLength: 800;
-      }>;
-    requirements: Attribute.RichText & Attribute.Required;
-    qualifications: Attribute.RichText &
-      Attribute.DefaultTo<'No preferred qualifications.'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -825,6 +788,205 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiClementClement extends Schema.SingleType {
+  collectionName: 'clements';
+  info: {
+    singularName: 'clement';
+    pluralName: 'clements';
+    displayName: 'clement';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.DefaultTo<'Graduated with a Masters of Science in Entrepreneurship and Innovation from France, Cl\u00E9ment has been working in Hong Kong for the past 8 years spearheading transformative partnerships with Corporate giants to elevate their digital experience. Before founding Acument with Damien, Cl\u00E9ment demonstrated a commitment extends beyond business growth with his clients. He champions customer success, ensuring his clients achieve their goals seamlessly, solidifying his reputation as a trusted ally in navigating complex business challenges.'>;
+    avatar: Attribute.Media<'images'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::clement.clement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::clement.clement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContentContent extends Schema.SingleType {
+  collectionName: 'contents';
+  info: {
+    singularName: 'content';
+    pluralName: 'contents';
+    displayName: 'About Us';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    our_story: Attribute.Text &
+      Attribute.Required &
+      Attribute.DefaultTo<"                Originating from humble roots in Hong Kong, our boutique consultancy has since expanded its presence to the vibrant city of Singapore. With a proven track record in Hong Kong, we offer tailored solutions ranging from direct consultancy engagements to niche talent sourcing, ensuring our clients' projects receive the attention and expertise they deserve. Our team composes of delivery mindset individuals with extensive digital product experience to offer invaluable insights and support to help drive our clients\u2019 digital growth. With a hands-on approach and boots on the ground mentality, Acument is known for our commitment to fast response and a customer-centric approach that puts our clients' success at the forefront.">;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::content.content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::content.content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDamienDamien extends Schema.SingleType {
+  collectionName: 'damiens';
+  info: {
+    singularName: 'damien';
+    pluralName: 'damiens';
+    displayName: 'Damien';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.DefaultTo<"Damien graduated with a Masters of Science in Corporate Finance in France, Damien honed his expertise across Paris, Shanghai, and Hong Kong. Over the past 8 years, alongside his twin brother, Cl\u00E9ment, Damien co-founded Acument. With a rich background spanning consulting firms and MNCs, Damien spearheads digital transformation initiatives, driving organizational change through innovative tools and cultural advocacy. Known as a catalyst for cultural shifts, Damien's unwavering dedication to excellence ensures the success of customer projects, firmly establishing him as a stalwart advocate for customer success.">;
+    avatar: Attribute.Media<'images'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::damien.damien',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::damien.damien',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataPrivacyDataPrivacy extends Schema.CollectionType {
+  collectionName: 'data_privacies';
+  info: {
+    singularName: 'data-privacy';
+    pluralName: 'data-privacies';
+    displayName: 'Data Privacy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    policy_description: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-privacy.data-privacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-privacy.data-privacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiJobJob extends Schema.CollectionType {
+  collectionName: 'jobs';
+  info: {
+    singularName: 'job';
+    pluralName: 'jobs';
+    displayName: 'job';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    category: Attribute.String & Attribute.Required;
+    roles_and_responsibilities: Attribute.RichText & Attribute.Required;
+    image: Attribute.Media<'images'>;
+    date: Attribute.Date & Attribute.Required;
+    location: Attribute.Text & Attribute.Required;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 25;
+        maxLength: 800;
+      }>;
+    requirements: Attribute.RichText & Attribute.Required;
+    qualifications: Attribute.RichText &
+      Attribute.DefaultTo<'No preferred qualifications.'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOurServiceOurService extends Schema.CollectionType {
+  collectionName: 'our_services';
+  info: {
+    singularName: 'our-service';
+    pluralName: 'our-services';
+    displayName: 'Our Service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-service.our-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-service.our-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -835,7 +997,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::job.job': ApiJobJob;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -844,6 +1005,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::clement.clement': ApiClementClement;
+      'api::content.content': ApiContentContent;
+      'api::damien.damien': ApiDamienDamien;
+      'api::data-privacy.data-privacy': ApiDataPrivacyDataPrivacy;
+      'api::job.job': ApiJobJob;
+      'api::our-service.our-service': ApiOurServiceOurService;
     }
   }
 }

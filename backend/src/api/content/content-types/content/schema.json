@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "contents",
+  "info": {
+    "singularName": "content",
+    "pluralName": "contents",
+    "displayName": "About Us",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "our_story": {
+      "type": "text",
+      "required": true,
+      "default": "                Originating from humble roots in Hong Kong, our boutique consultancy has since expanded its presence to the vibrant city of Singapore. With a proven track record in Hong Kong, we offer tailored solutions ranging from direct consultancy engagements to niche talent sourcing, ensuring our clients' projects receive the attention and expertise they deserve. Our team composes of delivery mindset individuals with extensive digital product experience to offer invaluable insights and support to help drive our clients’ digital growth. With a hands-on approach and boots on the ground mentality, Acument is known for our commitment to fast response and a customer-centric approach that puts our clients' success at the forefront."
+    }
+  }
+}

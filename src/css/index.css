@@ -23665,7 +23665,7 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Distributes space around items */
-  text-align: left;
+  text-align: justify;
   padding: 2em 1em 2em 1em; /* Increase right padding */
   font-size: calc(13px + 1vw);
   scrollbar-width: none;
@@ -24241,6 +24241,9 @@ a {
     text-align: center;
     margin: auto;
   }
+  .dropdown-text {
+    margin: 1.5rem 0;
+  }
 }
 @media (max-width: 768px) {
   .value-propositions {
@@ -24311,13 +24314,12 @@ a {
     margin-top: -5vh;
     padding: 0;
   }
+  .dropdown-text {
+    margin: 6rem 0;
+  }
 }
 .proposition-title-text {
   font-size: 1.5rem;
-}
-
-.dropdown-text {
-  margin: 6rem 0;
 }
 
 .arrow {
@@ -24567,6 +24569,18 @@ i {
 .address .text {
   text-indent: -10px; /* Indents the first line to align with other lines if needed */
   padding-left: 1em; /* Adjust this value to match the margin-right of the icon */
+}
+
+.image-container {
+  display: inline-block;
+  padding: 3px; /* Space for the border */
+  background: linear-gradient(45deg, #FF0072, #2476FF);
+  border-radius: 12px; /* Optional: Rounds the corners of the border */
+}
+
+.image-container img {
+  display: block;
+  border-radius: 10px; /* Optional: Rounds the corners of the image */
 }
 
 /*# sourceMappingURL=index.css.map */
