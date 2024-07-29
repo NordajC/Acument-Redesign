@@ -4,7 +4,8 @@
   "info": {
     "singularName": "job",
     "pluralName": "jobs",
-    "displayName": "job"
+    "displayName": "job",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,12 +25,12 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "date": {
       "required": true,
@@ -38,6 +39,20 @@
     "location": {
       "type": "text",
       "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 25,
+      "maxLength": 800
+    },
+    "requirements": {
+      "type": "richtext",
+      "required": true
+    },
+    "qualifications": {
+      "type": "richtext",
+      "default": "No preferred qualifications."
     }
   }
 }

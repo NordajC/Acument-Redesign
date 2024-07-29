@@ -611,13 +611,33 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
+
   fetchJobPostings();
+  fetchInfo("title");
+  fetchInfo("category");
 });
 
+// info must be a string
+async function fetchInfo(info) {
+  try {
+      const response = await fetch('https://supportive-action-24aa34bd56.strapiapp.com/api/jobs?populate=*', {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      const json_response = await response.json();
+      // console.log('Response JSON', json_response.data[0].attributes[info]);
+      console.log('Response JSON', json_response);
+    } catch (error) {
+      console.error('Error fetching job postings:', error);
+  }
+}
 
 function md_to_html(md) {
   const lines = md.split("\n");
-  const modifiedLines = lines.map((line) => line.slice(1).trim());
+  const modifiedLines = lines.map((line) => line.slice(1).trim()); // slice removes the hyphen 
   let html = "<ul>";
 
   // Add each line as an <li> element inside the <ul>
@@ -630,6 +650,11 @@ function md_to_html(md) {
   return html;
 }
 
-
-
 //testing
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init();
+  // Adjust the timeout according to your animation duration
+  setTimeout(() => {
+    document.getElementsByClassName('modal').style.display = 'block';
+  }, 1000); // Assuming 1000ms is enough for all AOS animations to complete
+});

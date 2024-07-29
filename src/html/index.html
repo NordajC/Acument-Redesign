@@ -23,11 +23,15 @@
 
 
     <link rel="stylesheet" href="../css/index.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Acument</title>
   </head>
   <body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <div id="splash-screen">
       <div class="logo-container">
         <img
@@ -132,7 +136,7 @@
     </script>
     
     <section id="home" class="hero is-small scroll-snap" style="padding: 0rem">
-      <div class="hero-body center-div">
+      <div class="hero-body center-div" data-aos="fade-up">
         <h1 class="hero-title text-center hero-top-margin">Your path to</h1>
         <h1 class="hero-title bold text-center">
           Digital Excellence
@@ -147,7 +151,7 @@
           <div class="about-us-container" id="about">
             <div class="titles-container">
               <div class="left-border">
-                <h2 class="gradient-text semi-bold left-border"> About Us</h2>
+                <h2 class="gradient-text semi-bold left-border" data-aos="zoom-in"> About Us</h2>
               </div>
               
               <h2>IT Consulting and Sourcing Company specializing in digital, data, and engineering areas.</h2>
@@ -259,13 +263,13 @@
     <br>
     <section class="section" id="values">
       <div class=" full-width">
-        <div class="left-border">
+        <div class="left-border" data-aos="fade-up">
           <h2 class="gradient-text semi-bold left-border">Our Core Values</h2>
         </div>
         <br>
         <br>
           <div class="columns is-multiline">
-              <div class="column is-one-third">
+              <div class="column is-one-third" data-aos="fade-up">
                   <div class="value-box passionate box value-gradient-hover">
                       <div class="value-title-container">
                         <h3 class="title is-3 value-title">PASSIONATE</h3>
@@ -274,7 +278,7 @@
                       
                   </div>
               </div>
-              <div class="column is-one-third">
+              <div class="column is-one-third" data-aos="fade-up">
                   <div class="value-box agile box value-gradient-hover">
                     <div class="value-title-container">
                       <h3 class="title is-3 value-title">AGILE</h3>
@@ -282,7 +286,7 @@
                       <p class="value-text">No matter how big we get, our decision-making remains razor-sharp, tethered to the pulse of the industry. Our bond with clients empowers us to swiftly anticipate and adapt to shifts, ensuring our agility amidst growth.</p>
                   </div>
               </div>
-              <div class="column is-one-third">
+              <div class="column is-one-third" data-aos="fade-up">
                   <div class="value-box collaborative box value-gradient-hover">
                     <div class="value-title-container">
                       <h3 class="title is-3 value-title">COLLABORATIVE</h3>
@@ -294,7 +298,7 @@
       </div>
   </section>
   <section class="section" id="services">
-    <div class="left-border ">
+    <div class="left-border " data-aos="fade-up">
       <h2 class="gradient-text semi-bold left-border">Our Services</h2>
     </div>
     <br>
@@ -308,13 +312,13 @@
       
       <!-- Digital -->
       <div class="services-row">
-        <div class="services-column is-half">
+        <div class="services-column is-half" data-aos="fade-up">
           <figure class="services-image">
             <img src="../assets/web images/DIGITAL2-AdobeStock_838669019.jpeg" alt="Digital Service">
           </figure>
         </div>
         <div class="services-column is-half">
-          <div class="services-content">
+          <div class="services-content" data-aos="fade-up">
             <h2 class="services-title gradient-text bold">DIGITAL</h2>
             <p>We provide innovative digital solutions to help you chart a new course in your customer journey. Our solutions are designed to be exhilirating, helping you to increase customer retention and generate more revenue. Take advantage of our digital capabilities today and unlock the full potential of your business.</p>
             <button id="digital-case-btn" class="text-button btn services-button">Case Study →</button>
@@ -343,14 +347,14 @@
       </div>
 
       <!-- Data -->
-      <div class="services-row">
-        <div class="services-column is-half">
+      <div class="services-row" >
+        <div class="services-column is-half" data-aos="fade-up">
           <figure class="services-image">
             <img src="../assets/web images/DATA3-AdobeStock_814093692.jpeg" alt="Data Service">
           </figure>
         </div>
         <div class="services-column is-half">
-          <div class="services-content">
+          <div class="services-content" data-aos="fade-up">
             <h2 class="services-title gradient-text bold">DATA</h2>
             <p>We help organizations develop a data-driven culture and leverage real-time analytics to enable business insights. We specialize in breaking silos to ensure data is accessible and transparent throughout the organization, enabling teams to make smarter decisions.</p>
             <button id="data-case-btn" class="text-button btn services-button">Case Study →</button>
@@ -383,13 +387,13 @@
       </div>
 
       <div class="services-row">
-        <div class="services-column is-half">
+        <div class="services-column is-half" data-aos="fade-right">
           <figure class="services-image">
             <img src="../assets/web images/ENGINEERING4-AdobeStock_510781301.jpeg" alt="Data Service">
           </figure>
         </div>
         <div class="services-column is-half">
-          <div class="services-content">
+          <div class="services-content" data-aos="fade-up">
             <h2 class="services-title gradient-text bold">ENGINEERING</h2>
             <p>Our Engineering service provides cloud native, high performance, scalable applications, utilizing industry best practices and state of the art technology. We strive to deliver the best solutions to our clients, helping them reach their business objectives and maximize their investments.</p>
             <button id="engineering-case-btn" class="text-button btn services-button">Case Study →</button>
@@ -576,7 +580,7 @@
 
     <section class="section" id="jobs">
         <div class="container job-container">
-          <div class="left-border">
+          <div class="left-border" data-aos="fade-up">
             <h2 class="gradient-text semi-bold left-border">Join Our Team</h2>
           </div>
             <div class="footer reverse-mobile">
@@ -584,7 +588,7 @@
                 <div id="category-menu" class="job-category-menu"></div>
                 <div id="job-list" class="job-list"></div>
               </div>
-              <div class="contact-column">
+              <div class="contact-column" data-aos="flip-up">
                 <img src="../assets/web images/join_our_team.jpeg" alt="">
               </div>
             </div>
@@ -599,12 +603,12 @@
 <script src="index.js"></script>
   <section class="value-propositions" id="Propersitions">
     <div class="container">
-      <div class="left-border">
+      <div class="left-border" data-aos="fade-up">
         <h2 class="gradient-text semi-bold left-border">Unique Value Propositions</h2>
       </div>
       <br>
         <div class="columns is-mobile is-multiline">
-            <div class="column is-one-fifth-desktop is-full-mobile">
+            <div class="column is-one-fifth-desktop is-full-mobile" data-aos="zoom-in">
                 <div class="proposition">
                     <div class="proposition-header" onclick="toggleDropdown('dropdown1', this)">
                         <img src="../assets/web images/1-noun-iteration-5762902.svg" class="value-img-1">
@@ -620,7 +624,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-one-fifth-desktop is-full-mobile">
+            <div class="column is-one-fifth-desktop is-full-mobile" data-aos="zoom-in">
                 <div class="proposition">
                     <div class="proposition-header" onclick="toggleDropdown('dropdown2',this)">
                         <img src="../assets/web images/2-noun-timing-4171169.svg" class="value-img-2">
@@ -637,7 +641,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-one-fifth-desktop is-full-mobile">
+            <div class="column is-one-fifth-desktop is-full-mobile" data-aos="zoom-in">
                 <div class="proposition">
                     <div class="proposition-header" onclick="toggleDropdown('dropdown3',this)">
                         <img src="../assets/web images/3-noun-handshake-6973331.svg" class="value-img-3">
@@ -654,7 +658,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-one-fifth-desktop is-full-mobile">
+            <div class="column is-one-fifth-desktop is-full-mobile" data-aos="zoom-in">
                 <div class="proposition">
                     <div class="proposition-header" onclick="toggleDropdown('dropdown4', this)">
                         <img src="../assets/web images/4-noun-kpi-6697853.svg" class="value-img-4">
@@ -671,7 +675,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-one-fifth-desktop is-full-mobile cost-top-margin">
+            <div class="column is-one-fifth-desktop is-full-mobile cost-top-margin" data-aos="zoom-in">
                 <div class="proposition">
                     <div class="proposition-header" onclick="toggleDropdown('dropdown5', this)">
                         <img src="../assets/web images/5-noun-business-6012345.svg" class="value-img-5">
@@ -691,18 +695,31 @@
 
   <section class="get-in-touch">
     <div class="container" style="display: flex;">
-        <div class="left-border">
+        <div class="left-border" data-aos="fade-right">
             <h2 class="gradient-text semi-bold left-border">Get In Touch</h2>
         </div>
         <br>
     </div>
     <div class="content">
       <div class="footer">
-          <div class="location-column">
+          <!-- <div class="location-column">
               <h3 style="color: #fff;">Find Us</h3>
               <p><i class="fas fa-map-marker-alt"></i> Billion Plaza 2, 17/F, Room 5A, <br> 10 Cheung Yue Street, Lai Chi Kok,<br> Hong Kong</p>
               <p><i class="fas fa-map-marker-alt"></i> 16 Raffles Quay, <br>#41-01 Hong Leong Building, <br>Singapore 048581</p>
-          </div>
+          </div> -->
+          <div class="location-column">
+            <h3 style="color: #fff;">Find Us</h3>
+            <div class="address">
+              <p>
+                  <i class="fas fa-map-marker-alt" ></i>
+                  <span class="text">&nbsp; Billion Plaza 2, 17/F, Room 5A, <br>10 Cheung Yue Street <br> Lai Chi Kok, <br> Hong Kong SAR</span>
+              </p>
+              <p>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span class="text"> &nbsp; 16 Raffles Quay, <br> #40-01 Hong Leong Building <br> Singapore 048581</span>
+              </p>
+          </div>          
+        </div>
           <div class="contact-column">
               <div class="contact-us">
                   <h3 style="color: #fff;">Contact Us</h3>
