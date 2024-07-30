@@ -663,8 +663,45 @@ function md_to_html(md) {
 
   // Close the <ul> tag
   html += "</ul>";
-  return html;
+  return 
+  html;
 }
+
+async function fetchSingleType(apiUrl, elementId, attribute) {
+  try {
+      const response = await fetch(apiUrl, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(`Response for ${elementId}:`, data); // Log the response to see the structure
+
+      // Extract the content based on the provided attribute
+      const content = data.data.attributes ? data.data.attributes[attribute] : "Content not found";
+      document.getElementById(elementId).innerHTML = content;
+  } catch (error) {
+      console.error(`Error fetching ${elementId}:`, error);
+      document.getElementById(elementId).innerHTML = '<p>Error loading content.</p>';
+  }
+}
+
+// Fetching "Our Story" content
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', 'our_story');
+
+// Fetching "Damien" content
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'description');
+
+// Fetching "Clement" content
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'description');
+
+
 
 //testing
 document.addEventListener("DOMContentLoaded", () => {
