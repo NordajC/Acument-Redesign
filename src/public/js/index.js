@@ -611,13 +611,49 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
+
   fetchJobPostings();
+  fetchInfo2('jobs', 'category');
 });
 
+async function fetchInfo2(collection , entry) {
+  try {
+      const response = await fetch(`https://supportive-action-24aa34bd56.strapiapp.com/api/${collection}?populate=*`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      const json_response = await response.json();
+      console.log('Response JSON', json_response.data[0].attributes[entry]);
+      // console.log('Response JSON', json_response);
+    } catch (error) {
+      console.error('Error fetching job postings:', error);
+  }
+}
+
+// info must be a string
+async function fetchInfo(info) {
+  try {
+      const response = await fetch('https://supportive-action-24aa34bd56.strapiapp.com/api/jobs?populate=*', {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      const json_response = await response.json();
+      // console.log('Response JSON', json_response.data[0].attributes[info]);
+      console.log('Response JSON', json_response);
+    } catch (error) {
+      console.error('Error fetching job postings:', error);
+  }
+}
 
 function md_to_html(md) {
   const lines = md.split("\n");
-  const modifiedLines = lines.map((line) => line.slice(1).trim());
+  const modifiedLines = lines.map((line) => line.slice(1).trim()); // slice removes the hyphen 
   let html = "<ul>";
 
   // Add each line as an <li> element inside the <ul>
@@ -627,9 +663,51 @@ function md_to_html(md) {
 
   // Close the <ul> tag
   html += "</ul>";
-  return html;
+  return 
+  html;
 }
+
+async function fetchSingleType(apiUrl, elementId, attribute) {
+  try {
+      const response = await fetch(apiUrl, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(`Response for ${elementId}:`, data); // Log the response to see the structure
+
+      // Extract the content based on the provided attribute
+      const content = data.data.attributes ? data.data.attributes[attribute] : "Content not found";
+      document.getElementById(elementId).innerHTML = content;
+  } catch (error) {
+      console.error(`Error fetching ${elementId}:`, error);
+      document.getElementById(elementId).innerHTML = '<p>Error loading content.</p>';
+  }
+}
+
+// Fetching "Our Story" content
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', 'our_story');
+
+// Fetching "Damien" content
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'description');
+
+// Fetching "Clement" content
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'description');
 
 
 
 //testing
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init();
+  // Adjust the timeout according to your animation duration
+  setTimeout(() => {
+    document.getElementsByClassName('modal').style.display = 'block';
+  }, 1000); // Assuming 1000ms is enough for all AOS animations to complete
+});
