@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "availables",
+  "info": {
+    "singularName": "available",
+    "pluralName": "availables",
+    "displayName": "available",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 100
+    }
+  }
+}

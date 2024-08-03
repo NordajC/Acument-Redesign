@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "agiles",
+  "info": {
+    "singularName": "agile",
+    "pluralName": "agiles",
+    "displayName": "agile"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 100
+    }
+  }
+}

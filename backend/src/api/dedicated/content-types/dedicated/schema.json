@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "dedicateds",
+  "info": {
+    "singularName": "dedicated",
+    "pluralName": "dedicateds",
+    "displayName": "Dedicated"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 100
+    }
+  }
+}

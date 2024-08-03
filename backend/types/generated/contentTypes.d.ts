@@ -788,6 +788,73 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAgileAgile extends Schema.SingleType {
+  collectionName: 'agiles';
+  info: {
+    singularName: 'agile';
+    pluralName: 'agiles';
+    displayName: 'agile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::agile.agile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::agile.agile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAvailableAvailable extends Schema.SingleType {
+  collectionName: 'availables';
+  info: {
+    singularName: 'available';
+    pluralName: 'availables';
+    displayName: 'available';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::available.available',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::available.available',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiClementClement extends Schema.SingleType {
   collectionName: 'clements';
   info: {
@@ -919,6 +986,39 @@ export interface ApiDataPrivacyDataPrivacy extends Schema.CollectionType {
   };
 }
 
+export interface ApiDedicatedDedicated extends Schema.SingleType {
+  collectionName: 'dedicateds';
+  info: {
+    singularName: 'dedicated';
+    pluralName: 'dedicateds';
+    displayName: 'Dedicated';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dedicated.dedicated',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dedicated.dedicated',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiJobJob extends Schema.CollectionType {
   collectionName: 'jobs';
   info: {
@@ -956,6 +1056,39 @@ export interface ApiJobJob extends Schema.CollectionType {
   };
 }
 
+export interface ApiOptimizationOptimization extends Schema.SingleType {
+  collectionName: 'optimizations';
+  info: {
+    singularName: 'optimization';
+    pluralName: 'optimizations';
+    displayName: 'Optimization';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::optimization.optimization',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::optimization.optimization',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOurServiceOurService extends Schema.CollectionType {
   collectionName: 'our_services';
   info: {
@@ -987,6 +1120,39 @@ export interface ApiOurServiceOurService extends Schema.CollectionType {
   };
 }
 
+export interface ApiPerformancePerformance extends Schema.SingleType {
+  collectionName: 'performances';
+  info: {
+    singularName: 'performance';
+    pluralName: 'performances';
+    displayName: 'Performance';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::performance.performance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::performance.performance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1005,12 +1171,17 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::agile.agile': ApiAgileAgile;
+      'api::available.available': ApiAvailableAvailable;
       'api::clement.clement': ApiClementClement;
       'api::content.content': ApiContentContent;
       'api::damien.damien': ApiDamienDamien;
       'api::data-privacy.data-privacy': ApiDataPrivacyDataPrivacy;
+      'api::dedicated.dedicated': ApiDedicatedDedicated;
       'api::job.job': ApiJobJob;
+      'api::optimization.optimization': ApiOptimizationOptimization;
       'api::our-service.our-service': ApiOurServiceOurService;
+      'api::performance.performance': ApiPerformancePerformance;
     }
   }
 }

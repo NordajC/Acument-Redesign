@@ -483,136 +483,150 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log(JFL_241966305117355);
 
   async function fetchJobPostings() {
-      try {
-          const response = await fetch('https://supportive-action-24aa34bd56.strapiapp.com/api/jobs?populate=*', {
-              method: 'GET',
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          });
+    try {
+        const response = await fetch('https://supportive-action-24aa34bd56.strapiapp.com/api/jobs?populate=*', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
-          const json_response = await response.json();
-          const jobsByCategory = groupJobsByCategory(json_response.data);
-          displayCategoryButtons(jobsByCategory);
-          displayJobPostings(jobsByCategory, 'All');
-      } catch (error) {
-          console.error('Error fetching job postings:', error);
-      }
-  }
+        const json_response = await response.json();
+        const jobsByCategory = groupJobsByCategory(json_response.data);
+        displayCategoryButtons(jobsByCategory);
+        displayJobPostings(jobsByCategory, 'All');
+    } catch (error) {
+        console.error('Error fetching job postings:', error);
+    }
+}
 
-  function groupJobsByCategory(jobPostings) {
-      return jobPostings.reduce((acc, job) => {
-          const category = job.attributes.category || 'Uncategorized';
-          if (!acc[category]) {
-              acc[category] = [];
-          }
-          acc[category].push(job);
-          return acc;
-      }, {});
-  }
+function groupJobsByCategory(jobPostings) {
+    return jobPostings.reduce((acc, job) => {
+        const category = job.attributes.category || 'Uncategorized';
+        if (!acc[category]) {
+            acc[category] = [];
+        }
+        acc[category].push(job);
+        return acc;
+    }, {});
+}
 
-  function displayCategoryButtons(jobsByCategory) {
-      const categoryMenu = document.getElementById('category-menu');
+function displayCategoryButtons(jobsByCategory) {
+    const categoryMenu = document.getElementById('category-menu');
 
-      // Add the "All" button
-      const allButton = document.createElement('button');
-      allButton.classList.add('job-category-button');
-      allButton.textContent = 'All';
-      allButton.setAttribute('data-category', 'All');
-      allButton.addEventListener('click', (event) => {
-          event.preventDefault(); // Prevent default action
-          displayJobPostings(jobsByCategory, 'All');
-          setActiveCategory(allButton);
-      });
-      categoryMenu.appendChild(allButton);
+    // Add the "All" button
+    const allButton = document.createElement('button');
+    allButton.classList.add('job-category-button');
+    allButton.textContent = 'All';
+    allButton.setAttribute('data-category', 'All');
+    allButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default action
+        displayJobPostings(jobsByCategory, 'All');
+        setActiveCategory(allButton);
+    });
+    categoryMenu.appendChild(allButton);
 
-      // Add buttons for each category
-      for (const category in jobsByCategory) {
-          const categoryButton = document.createElement('button');
-          categoryButton.classList.add('job-category-button');
-          categoryButton.textContent = category;
-          categoryButton.setAttribute('data-category', category);
-          categoryButton.addEventListener('click', (event) => {
-              event.preventDefault(); // Prevent default action
-              displayJobPostings(jobsByCategory, category);
-              setActiveCategory(categoryButton);
-          });
-          categoryMenu.appendChild(categoryButton);
-      }
-  }
+    // Add buttons for each category
+    for (const category in jobsByCategory) {
+        const categoryButton = document.createElement('button');
+        categoryButton.classList.add('job-category-button');
+        categoryButton.textContent = category;
+        categoryButton.setAttribute('data-category', category);
+        categoryButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default action
+            displayJobPostings(jobsByCategory, category);
+            setActiveCategory(categoryButton);
+        });
+        categoryMenu.appendChild(categoryButton);
+    }
+}
 
-  function setActiveCategory(activeButton) {
-      const buttons = document.querySelectorAll('.job-category-button');
-      buttons.forEach(button => {
-          button.classList.remove('active');
-      });
-      activeButton.classList.add('active');
-  }
+function setActiveCategory(activeButton) {
+    const buttons = document.querySelectorAll('.job-category-button');
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+    activeButton.classList.add('active');
+}
 
-  function displayJobPostings(jobsByCategory, selectedCategory) {
-      const jobList = document.getElementById('job-list');
-      jobList.innerHTML = ''; // Clear existing content
+function displayJobPostings(jobsByCategory, selectedCategory) {
+    const jobList = document.getElementById('job-list');
+    jobList.innerHTML = ''; // Clear existing content
 
-      const categoriesToDisplay = selectedCategory === 'All' ? Object.keys(jobsByCategory) : [selectedCategory];
+    const categoriesToDisplay = selectedCategory === 'All' ? Object.keys(jobsByCategory) : [selectedCategory];
 
-      categoriesToDisplay.forEach(category => {
-          jobsByCategory[category].forEach(job => {
-              const jobItem = document.createElement('div');
-              jobItem.classList.add('job-item');
+    categoriesToDisplay.forEach(category => {
+        jobsByCategory[category].forEach(job => {
+            const jobItem = document.createElement('div');
+            jobItem.classList.add('job-item');
 
-              const jobTitleElement = document.createElement('h4');
-              jobTitleElement.classList.add('job-title');
-              jobTitleElement.textContent = job.attributes.title;
+            const jobTitleElement = document.createElement('h4');
+            jobTitleElement.classList.add('job-title');
+            jobTitleElement.textContent = job.attributes.title;
 
-              const jobDetails = document.createElement('div');
-              jobDetails.classList.add('job-details');
-              jobDetails.style.display = 'none';
+            const jobDetails = document.createElement('div');
+            jobDetails.classList.add('job-details');
+            jobDetails.style.display = 'none';
 
-              const imageUrl = job.attributes.image?.data?.attributes?.url 
-                  ? `${job.attributes.image.data.attributes.url}?t=${new Date().getTime()}` // Add a timestamp to the image URL
-                  : '';
-              const rolesAndResponsibilitiesHtml = marked.parse(job.attributes.roles_and_responsibilities);
+            const imageUrl = job.attributes.image?.data?.attributes?.url 
+                ? `${job.attributes.image.data.attributes.url}?t=${new Date().getTime()}` // Add a timestamp to the image URL
+                : '';
+            const rolesAndResponsibilitiesHtml = job.attributes.roles_and_responsibilities ? marked.parse(job.attributes.roles_and_responsibilities) : '';
+            const qualificationsHtml = job.attributes.qualifications ? marked.parse(job.attributes.qualifications) : '';
+            const requirementsHtml = job.attributes.requirements ? marked.parse(job.attributes.requirements) : '';
 
-              jobDetails.innerHTML = `
-                  <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
-                      ${imageUrl ? `<img src="${imageUrl}" alt="${job.attributes.title}" style="width: 80%; margin-bottom: 10px; border-radius: 8px;" />` : ''}
-                      <p class="category" style="text-align: left; width: 100%;"><strong>Category:</strong> ${job.attributes.category}</p>
-                      <div class="roles-responsibilities" style="text-align: left; width: 100%;">
-                          <h3 style="font-size: 20px; font-weight: bold;">Roles and Responsibilities:</h3>
-                          <ul style="font-size: 14px; line-height: 1.6;">
-                              ${rolesAndResponsibilitiesHtml.replace(/<p>/g, '<li>').replace(/<\/p>/g, '</li>')}
-                          </ul>
-                      </div>
-                      <p class="location" style="text-align: left; width: 100%; font-size: 16px;"><strong>Location:</strong> ${job.attributes.location}</p>
-                      <p class="date" style="text-align: left; width: 100%; font-size: 16px;"><strong>Date:</strong> ${job.attributes.date}</p>
-                      <div class="form-container" style="text-align: left; width: 100%; margin-top: 20px;">
-                          <button class="text-button btn" style="margin-top: 16px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all,.1s,ease-in;">Apply Now</button>
-                      </div>
-                  </div>
-              `;
+            jobDetails.innerHTML = `
+                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                    ${imageUrl ? `<img src="${imageUrl}" alt="${job.attributes.title}" class="job-image" />` : ''}
+                    <p class="description" style="text-align: left; width: 100%; font-size: 14px; line-height: 1.6;">${job.attributes.description || ''}</p>
+                    <div class="job-section-content" style="text-align: left; width: 100%;">
+                        <h3 class="section-title">Qualifications:</h3>
+                        <ul class="bullet-points">
+                            ${qualificationsHtml.replace(/<p>/g, '<li>').replace(/<\/p>/g, '</li>').replace(/<\/li><li>/g, '</li>\n<li>')}
+                        </ul>
+                    </div>
+                    <div class="job-section-content" style="text-align: left; width: 100%;">
+                        <h3 class="section-title">Requirements:</h3>
+                        <ul class="bullet-points">
+                            ${requirementsHtml.replace(/<p>/g, '<li>').replace(/<\/p>/g, '</li>').replace(/<\/li><li>/g, '</li>\n<li>')}
+                        </ul>
+                    </div>
+                    <div class="job-section-content roles-responsibilities" style="text-align: left; width: 100%;">
+                        <h3 class="section-title">Roles and Responsibilities:</h3>
+                        <ul class="bullet-points">
+                            ${rolesAndResponsibilitiesHtml.replace(/<p>/g, '<li>').replace(/<\/p>/g, '</li>').replace(/<\/li><li>/g, '</li>\n<li>')}
+                        </ul>
+                    </div>
+                    <p class="location"><strong>Location:</strong> ${job.attributes.location}</p>
+                    <p class="date"><strong>Date:</strong> ${job.attributes.date}</p>
+                    <div class="form-container">
+                        <button class="text-button btn" style="margin-top: 16px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all .1s ease-in; background-color: #6b706c;">Apply Now</button>
+                    </div>
+                </div>
+            `;
 
-              jobItem.appendChild(jobTitleElement);
-              jobItem.appendChild(jobDetails);
-              jobList.appendChild(jobItem);
+            jobItem.appendChild(jobTitleElement);
+            jobItem.appendChild(jobDetails);
+            jobList.appendChild(jobItem);
 
-              // Add event listener for toggling job details
-              jobTitleElement.addEventListener('click', (event) => {
-                  event.preventDefault(); // Prevent default action
-                  jobDetails.style.display = jobDetails.style.display === 'none' ? 'block' : 'none';
-              });
+            // Add event listener for toggling job details
+            jobTitleElement.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default action
+                jobDetails.style.display = jobDetails.style.display === 'none' ? 'block' : 'none';
+            });
 
-              // Add event listener for the "Apply Now" button
-              const applyButton = jobDetails.querySelector('.text-button.btn');
-              applyButton.addEventListener('click', () => {
-                  jobTitle = job.attributes.title; // Set the job title for the form
-                  JFL_241966305117355.showForm();
-              });
-          });
-      });
-  }
+            // Add event listener for the "Apply Now" button
+            const applyButton = jobDetails.querySelector('.text-button.btn');
+            applyButton.addEventListener('click', () => {
+                jobTitle = job.attributes.title; // Set the job title for the form
+                JFL_241966305117355.showForm();
+            });
+        });
+    });
+}
 
+fetchJobPostings();
 
-  fetchJobPostings();
   fetchInfo2('jobs', 'category');
 });
 
@@ -667,7 +681,7 @@ function md_to_html(md) {
   html;
 }
 
-async function fetchSingleType(apiUrl, elementId, attribute) {
+async function fetchSingleType(apiUrl, textElementId, imgElementId, textAttribute, imgAttribute) {
   try {
       const response = await fetch(apiUrl, {
           method: 'GET',
@@ -681,33 +695,72 @@ async function fetchSingleType(apiUrl, elementId, attribute) {
       }
 
       const data = await response.json();
-      console.log(`Response for ${elementId}:`, data); // Log the response to see the structure
+      console.log(`Response for ${textElementId}:`, data);
 
       // Extract the content based on the provided attribute
-      const content = data.data.attributes ? data.data.attributes[attribute] : "Content not found";
-      document.getElementById(elementId).innerHTML = content;
+      const textContent = data.data.attributes ? data.data.attributes[textAttribute] : "Content not found";
+      console.log(`Text content for ${textElementId}:`, textContent);
+
+      let imgContent = "";
+
+      if (imgAttribute) {
+          const imgData = data.data.attributes ? data.data.attributes[imgAttribute] : null;
+          console.log(`Image data for ${imgElementId}:`, imgData);
+
+          if (imgData && imgData.data && imgData.data.attributes.url) {
+              imgContent = imgData.data.attributes.url;
+              console.log(`Image URL for ${imgElementId}:`, imgContent);
+          }
+      }
+
+      document.getElementById(textElementId).innerHTML = textContent;
+
+      if (imgElementId && imgContent) {
+          document.getElementById(imgElementId).src = imgContent.startsWith('http') ? imgContent : `https://supportive-action-24aa34bd56.media.strapiapp.com${imgContent}`;
+      }
   } catch (error) {
-      console.error(`Error fetching ${elementId}:`, error);
-      document.getElementById(elementId).innerHTML = '<p>Error loading content.</p>';
+      console.error(`Error fetching ${textElementId}:`, error);
+      document.getElementById(textElementId).innerHTML = '<p>Error loading content.</p>';
   }
 }
 
 // Fetching "Our Story" content
-fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', 'our_story');
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', null, 'our_story', null);
+
+// Fetching Modal
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story-2', null, 'our_story', null);
+
 
 // Fetching "Damien" content
-fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'description');
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'damien-image', 'description', 'avatar');
 
 // Fetching "Clement" content
-fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'description');
+fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'clement-image', 'description', 'avatar');
 
 
-
-//testing
 document.addEventListener("DOMContentLoaded", () => {
   AOS.init();
   // Adjust the timeout according to your animation duration
   setTimeout(() => {
     document.getElementsByClassName('modal').style.display = 'block';
   }, 1000); // Assuming 1000ms is enough for all AOS animations to complete
+});
+
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 70; // Adjust 50px for fixed header if needed
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    }
+  });
 });

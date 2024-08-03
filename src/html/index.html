@@ -98,7 +98,7 @@
           <a class="navbar-item" href="#Propersitions">
             Unique Value Propositions
           </a>
-          <a class="navbar-item" href="#contact">
+          <a class="navbar-item" href="#get-in-touch">
             Get In Touch
           </a>
         </div>
@@ -141,14 +141,15 @@
         <h1 class="hero-title bold text-center">
           Digital Excellence
         </h1>
-        <img
+        <img 
           src="../assets/web images/HOME1-AdobeStock_390312361.jpeg"
           id="hero-img"
         />
       </div>
+      <span id="about"></span>
       <div class="text-container" style="display: hidden;">
         <div class="text-content">
-          <div class="about-us-container" id="about">
+          <div class="about-us-container" >
             <div class="titles-container">
               <div class="left-border">
                 <h2 class="gradient-text semi-bold left-border" data-aos="fade-right"> About Us</h2>
@@ -180,11 +181,11 @@
       </div>
 
       <div class="modal" id="myModal">
-        <div class="outer-modal-content">
-          <div class="modal-content">
-            <h2>ACUMENT GROUP: Your Path to Digital Excellence !</h2>
+        <div class="outer-modal-content ">
+          <div class="modal-content ">
+            <h2 class="seventy-width">ACUMENT GROUP: Your Path to Digital Excellence !</h2>
             <br />
-            <p id="our-story">
+            <p id="our-story-2">
 
             </p>
             <br />
@@ -206,7 +207,12 @@
               </div>
                 
               <div class="text-wrap">
-                <h2 class="founder-name">Clément Tran</h2>
+                <div class="inline-btn-container">
+                  <h2 class="founder-name">Clément Tran</h2>
+                  <a href="https://www.linkedin.com/in/cl%C3%A9ment-tran-b48a4860/" target="_blank" class="footer-link">
+                    <i class="fa fa-linkedin" style="scale: 0.5; transform: translateY(-5px);"></i>
+                  </a>
+                </div>
                 <h3 class="founder-title">Managing Director</h3>
                 <!-- <hr> -->
                 <br>
@@ -223,7 +229,12 @@
               </div>
 
               <div class="text-wrap">
-                <h2 class="founder-name">Damien Tran</h2>
+                <div class="inline-btn-container">
+                  <h2 class="founder-name">Damien Tran</h2>
+                  <a href="https://www.linkedin.com/in/damien-tran-36303846/" target="_blank" class="footer-link">
+                    <i class="fa fa-linkedin" style="scale: 0.5; transform: translateY(-5px);"></i>
+                  </a>
+                </div>
                 <h3 class="founder-title">Managing Director</h3>
                 <br>
                 <p id="damien-content">
@@ -313,7 +324,7 @@
 
       <div class="modal" id="digital-case">
           <div class="modal-content">
-            <div class="left-border ">
+            <div class="left-border seventy-width">
               <h2 class="gradient-text semi-bold left-border">Improve Customer Journey of VIP Guests</h2>
             </div>
             <br />
@@ -349,7 +360,7 @@
 
       <div class="modal" id="data-case">
         <div class="modal-content">
-          <div class="left-border ">
+          <div class="left-border seventy-width">
             <h2 class="gradient-text semi-bold left-border">Transform The organisation into
               a data-driven culture</h2>
           </div>
@@ -388,7 +399,7 @@
 
       <div class="modal" id="engineering-case">
         <div class="modal-content">
-          <div class="left-border ">
+          <div class="left-border seventy-width">
             <h2 class="gradient-text semi-bold left-border">Technology Refreshment and Team
               Capability Uplifting</h2>
           </div>
@@ -409,7 +420,6 @@
 
     </div>
   </section>
-
   <style>
     .job-section {
         padding: 20px;
@@ -438,22 +448,22 @@
         white-space: nowrap;
     }
     .job-category-menu::-webkit-scrollbar {
-        height: 5px; /* Make the horizontal scrollbar thinner */
-        cursor: grab; /* Change cursor to grab */
+        height: 5px;
+        cursor: grab;
     }
     .job-category-menu::-webkit-scrollbar-thumb {
-        background-color: #2476FF; /* Scrollbar thumb color */
-        border-radius: 10px; /* Roundness of the scrollbar thumb */
-        border: 1px solid #282626; /* Creates padding around scrollbar thumb */
+        background-color: #2476FF;
+        border-radius: 10px;
+        border: 1px solid #282626;
     }
     .job-category-menu::-webkit-scrollbar-thumb:hover {
-        background-color: #FF0072; /* Thumb hover color */
+        background-color: #FF0072;
     }
     .job-category-menu::-webkit-scrollbar-thumb:active {
-        cursor: grabbing; /* Change cursor to grabbing when active */
+        cursor: grabbing;
     }
     .job-category-menu::-webkit-scrollbar-track {
-        background: #282626; /* Track color */
+        background: #282626;
     }
     .job-category-button {
         background: transparent;
@@ -490,7 +500,7 @@
         margin-top: 10px;
     }
     .job-details img {
-        max-width: 80%; /* Increase the max-width to 80% */
+        max-width: 80%;
         margin: 0 auto 10px;
         display: block;
         border-radius: 8px;
@@ -504,7 +514,8 @@
     .job-details .date {
         text-align: left;
         width: 100%;
-        font-size: 16px; /* Increased font size */
+        font-size: 16px;
+        color: #E0E0E0;
     }
     .job-details .form-container {
         text-align: left;
@@ -525,23 +536,36 @@
         padding: 0;
         background: transparent;
     }
-    .roles-responsibilities {
-        padding-left: 20px;
-        text-align: left; /* Align text to the left */
+    .roles-responsibilities,
+    .job-section-content {
+        text-align: left;
+        width: 100%;
     }
-    .roles-responsibilities ul {
-        padding-left: 20px;
+    .roles-responsibilities ul, 
+    .job-section-content ul {
         list-style-type: disc;
+        padding-left: 20px;
     }
-    .roles-responsibilities ul li {
+    .roles-responsibilities ul li, 
+    .job-section-content ul li {
         margin-bottom: 5px;
     }
-    .category {
+    .job-section-content h3,
+    .roles-responsibilities h3 {
+        color: #E0E0E0;
+        font-size: 18px;
         font-weight: bold;
         margin-bottom: 10px;
     }
-    .roles-responsibilities h3 {
-        margin-bottom: 10px;
+    .description {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    .location, 
+    .date {
+        font-size: 16px;
+        font-weight: bold;
+        color: #E0E0E0;
     }
     /* Media queries for mobile responsiveness */
     @media (max-width: 768px) {
@@ -553,38 +577,34 @@
         }
         .job-details .location, 
         .job-details .date {
-            font-size: 14px; /* Adjust font size for mobile */
+            font-size: 14px;
         }
-        .roles-responsibilities ul {
+        .roles-responsibilities ul, 
+        .job-section-content ul {
             padding-left: 15px;
         }
     }
 </style>
 
-<script src="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
-
-    <section class="section" id="jobs">
-        <div class="container job-container">
-          <div class="left-border" data-aos="fade-right">
-            <h2 class="gradient-text semi-bold left-border">Join Our Team</h2>
+<section class="section" id="jobs">
+  <div class="container job-container">
+      <div class="left-border" data-aos="fade-right">
+          <h2 class="gradient-text semi-bold left-border">Join Our Team</h2>
+      </div>
+      <div class="footer reverse-mobile">
+          <div class="location-column">
+              <div id="category-menu" class="job-category-menu"></div>
+              <div id="job-list" class="job-list"></div>
           </div>
-            <div class="footer reverse-mobile">
-              <div class="location-column">
-                <div id="category-menu" class="job-category-menu"></div>
-                <div id="job-list" class="job-list"></div>
-              </div>
-              <div class="contact-column" data-aos="flip-up">
-                <div class="image-container">
+          <div class="contact-column" data-aos="flip-up">
+              <div class="image-container">
                   <img src="../assets/web images/join_our_team.jpeg" alt="">
-                </div>
               </div>
-            </div>
-        </div>
-    </section>
-    <script src="index.js"></script>
-
-
-
+          </div>
+      </div>
+  </div>
+</section>
+<script src="index.js"></script>
 
 
 <script src="index.js"></script>
@@ -611,23 +631,8 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-one-fifth-desktop is-full-mobile" data-aos="zoom-in">
-                <div class="proposition">
-                    <div class="proposition-header" onclick="toggleDropdown('dropdown2',this)">
-                        <img src="../assets/web images/2-noun-timing-4171169.svg" class="value-img-2">
-                        <div class="proposition-title-row bot-border">
-                          <span class="min-height-dropdown proposition-title-text">
-                            Always Available
-                          </span>
-                          
-                        </div>
-                        
-                    </div>
-                    <div id="dropdown2" class="proposition-dropdown">
-                        <p class="dropdown-text">Our Account Managers are available 24x7, so you get immediate answers, minimize downtime & maximize productivity.</p>
-                    </div>
-                </div>
-            </div>
+            <br>
+            <br>
             <div class="column is-one-fifth-desktop is-full-mobile" data-aos="zoom-in">
                 <div class="proposition">
                     <div class="proposition-header" onclick="toggleDropdown('dropdown3',this)">
@@ -645,6 +650,25 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <div class="column is-one-fifth-desktop is-full-mobile" data-aos="zoom-in">
+              <div class="proposition">
+                  <div class="proposition-header" onclick="toggleDropdown('dropdown2',this)">
+                      <img src="../assets/web images/2-noun-timing-4171169.svg" class="value-img-2">
+                      <div class="proposition-title-row bot-border">
+                        <span class="min-height-dropdown proposition-title-text">
+                          Always Available
+                        </span>
+                        
+                      </div>
+                      
+                  </div>
+                  <div id="dropdown2" class="proposition-dropdown">
+                      <p class="dropdown-text">Our Account Managers are available 24x7, so you get immediate answers, minimize downtime & maximize productivity.</p>
+                  </div>
+              </div>
+          </div>
+          <br>
             <div class="column is-one-fifth-desktop is-full-mobile" data-aos="zoom-in">
                 <div class="proposition">
                     <div class="proposition-header" onclick="toggleDropdown('dropdown4', this)">
@@ -662,6 +686,7 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="column is-one-fifth-desktop is-full-mobile cost-top-margin" data-aos="zoom-in">
                 <div class="proposition">
                     <div class="proposition-header" onclick="toggleDropdown('dropdown5', this)">
@@ -681,7 +706,7 @@
     <br>
   </section> 
 
-  <section class="get-in-touch">
+  <section class="get-in-touch" id="get-in-touch">
     <div class="container" style="display: flex;">
         <div class="left-border" data-aos="fade-right">
             <h2 class="gradient-text semi-bold left-border">Get In Touch</h2>
@@ -699,11 +724,11 @@
             <h3 style="color: #fff;">Find Us</h3>
             <div class="address">
               <p>
-                  <i class="fas fa-map-marker-alt" ></i>
+                  <i class="fas fa-map-marker-alt" style="transform: translateY(3px);"></i>
                   <span class="text">&nbsp; Billion Plaza 2, 17/F, Room 5A, <br>10 Cheung Yue Street <br> Lai Chi Kok, <br> Hong Kong SAR</span>
               </p>
               <p>
-                  <i class="fas fa-map-marker-alt"></i>
+                  <i class="fas fa-map-marker-alt" style="transform: translateY(3px);"></i>
                   <span class="text"> &nbsp; 16 Raffles Quay, <br> #40-01 Hong Leong Building <br> Singapore 048581</span>
               </p>
           </div>          

@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "optimizations",
+  "info": {
+    "singularName": "optimization",
+    "pluralName": "optimizations",
+    "displayName": "Optimization"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 100
+    }
+  }
+}
