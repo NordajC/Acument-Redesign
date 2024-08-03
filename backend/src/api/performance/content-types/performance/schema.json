@@ -4,7 +4,8 @@
   "info": {
     "singularName": "performance",
     "pluralName": "performances",
-    "displayName": "Performance"
+    "displayName": "Performance",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,7 +14,7 @@
   "attributes": {
     "description": {
       "type": "text",
-      "maxLength": 100
+      "maxLength": 200
     }
   }
 }

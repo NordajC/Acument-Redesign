@@ -738,6 +738,7 @@ fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien',
 fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'clement-image', 'description', 'avatar');
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   AOS.init();
   // Adjust the timeout according to your animation duration

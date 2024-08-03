@@ -794,6 +794,7 @@ export interface ApiAgileAgile extends Schema.SingleType {
     singularName: 'agile';
     pluralName: 'agiles';
     displayName: 'agile';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -801,7 +802,7 @@ export interface ApiAgileAgile extends Schema.SingleType {
   attributes: {
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
-        maxLength: 100;
+        maxLength: 200;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -835,7 +836,7 @@ export interface ApiAvailableAvailable extends Schema.SingleType {
   attributes: {
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
-        maxLength: 100;
+        maxLength: 200;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -992,6 +993,7 @@ export interface ApiDedicatedDedicated extends Schema.SingleType {
     singularName: 'dedicated';
     pluralName: 'dedicateds';
     displayName: 'Dedicated';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -999,7 +1001,7 @@ export interface ApiDedicatedDedicated extends Schema.SingleType {
   attributes: {
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
-        maxLength: 100;
+        maxLength: 200;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1062,6 +1064,7 @@ export interface ApiOptimizationOptimization extends Schema.SingleType {
     singularName: 'optimization';
     pluralName: 'optimizations';
     displayName: 'Optimization';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1069,7 +1072,7 @@ export interface ApiOptimizationOptimization extends Schema.SingleType {
   attributes: {
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
-        maxLength: 100;
+        maxLength: 200;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1126,6 +1129,7 @@ export interface ApiPerformancePerformance extends Schema.SingleType {
     singularName: 'performance';
     pluralName: 'performances';
     displayName: 'Performance';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1133,7 +1137,7 @@ export interface ApiPerformancePerformance extends Schema.SingleType {
   attributes: {
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
-        maxLength: 100;
+        maxLength: 200;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
