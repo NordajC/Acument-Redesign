@@ -681,61 +681,56 @@ function md_to_html(md) {
   html;
 }
 
-async function fetchSingleType(apiUrl, textElementId, imgElementId, textAttribute, imgAttribute) {
-  try {
-      const response = await fetch(apiUrl, {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json'
+document.addEventListener("DOMContentLoaded", function () {
+  async function fetchSingleType(apiUrl, textElementId, textAttribute) {
+      try {
+          const response = await fetch(apiUrl, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          });
+
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
           }
-      });
 
-      if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          const data = await response.json();
+          console.log(`Response for ${textElementId}:`, data);
+
+          // Extract the content based on the provided attribute
+          const textContent = data.data.attributes ? data.data.attributes[textAttribute] : "Content not found";
+          document.getElementById(textElementId).innerHTML = textContent;
+      } catch (error) {
+          console.error(`Error fetching ${textElementId}:`, error);
+          document.getElementById(textElementId).innerHTML = '<p>Error loading content.</p>';
       }
-
-      const data = await response.json();
-      console.log(`Response for ${textElementId}:`, data);
-
-      // Extract the content based on the provided attribute
-      const textContent = data.data.attributes ? data.data.attributes[textAttribute] : "Content not found";
-      console.log(`Text content for ${textElementId}:`, textContent);
-
-      let imgContent = "";
-
-      if (imgAttribute) {
-          const imgData = data.data.attributes ? data.data.attributes[imgAttribute] : null;
-          console.log(`Image data for ${imgElementId}:`, imgData);
-
-          if (imgData && imgData.data && imgData.data.attributes.url) {
-              imgContent = imgData.data.attributes.url;
-              console.log(`Image URL for ${imgElementId}:`, imgContent);
-          }
-      }
-
-      document.getElementById(textElementId).innerHTML = textContent;
-
-      if (imgElementId && imgContent) {
-          document.getElementById(imgElementId).src = imgContent.startsWith('http') ? imgContent : `https://supportive-action-24aa34bd56.media.strapiapp.com${imgContent}`;
-      }
-  } catch (error) {
-      console.error(`Error fetching ${textElementId}:`, error);
-      document.getElementById(textElementId).innerHTML = '<p>Error loading content.</p>';
   }
-}
 
-// Fetching "Our Story" content
-fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', null, 'our_story', null);
+  // Fetching "Our Story" content
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', 'our_story');
 
-// Fetching Modal
-fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story-2', null, 'our_story', null);
+  // Fetching Modal
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story-2', 'our_story');
 
+  // Fetching "Damien" content
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'description');
 
-// Fetching "Damien" content
-fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'damien-image', 'description', 'avatar');
+  // Fetching "Clement" content
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'description');
 
-// Fetching "Clement" content
-fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'clement-image', 'description', 'avatar');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/agile', 'agile-description', 'description');
+
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/available', 'available-description', 'description');
+
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/dedicated', 'dedicated-description', 'description');
+
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/optimization', 'optimization-description', 'description');
+
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/performance', 'performance-description', 'description');
+
+});
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
