@@ -23314,6 +23314,10 @@ has-background-danger.is-hoverable:active {
   font-family: "Poppins", sans-serif;
 }
 
+.strong {
+  color: white;
+}
+
 .hero-body {
   background-color: #282626;
   color: #FFFFFF;
@@ -23841,7 +23845,7 @@ body, html {
 .about-us-container {
   display: flex;
   width: 100%;
-  max-width: 1450px;
+  max-width: 1350px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -24061,7 +24065,7 @@ p {
 }
 
 .services-container {
-  max-width: 1200px;
+  max-width: 1350px;
   width: 100%;
   margin: auto;
 }
@@ -24490,6 +24494,7 @@ i {
 .footer {
   display: flex;
   width: 95%; /* Takes full width of container */
+  max-width: 1450px;
   background-color: #282626;
   margin: 0 auto;
 }
@@ -24574,6 +24579,18 @@ i {
 
 .seventy-width {
   width: 80%;
+}
+
+@media (min-width: 769px) {
+  .max-container-width-desktop {
+    max-width: 1450px !important;
+  }
+  .container-width {
+    width: 100%;
+  }
+}
+.color-correction {
+  background-color: #333333;
 }
 
 /*# sourceMappingURL=index.css.map */

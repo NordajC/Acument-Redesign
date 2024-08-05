@@ -597,8 +597,8 @@ function displayJobPostings(jobsByCategory, selectedCategory) {
                             ${rolesAndResponsibilitiesHtml.replace(/<p>/g, '<li>').replace(/<\/p>/g, '</li>').replace(/<\/li><li>/g, '</li>\n<li>')}
                         </ul>
                     </div>
-                    <p class="location"><strong>Location:</strong> ${job.attributes.location}</p>
-                    <p class="date"><strong>Date:</strong> ${job.attributes.date}</p>
+                    <p class="location"><strong style="color:white;">Location:</strong> ${job.attributes.location}</p>
+                    <p class="date"><strong style="color:white;">Date:</strong> ${job.attributes.date}</p>
                     <div class="form-container">
                         <button class="text-button btn" style="margin-top: 16px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all .1s ease-in; background-color: #6b706c;">Apply Now</button>
                     </div>

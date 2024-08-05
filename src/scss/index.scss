@@ -732,7 +732,7 @@ body, html {
 .about-us-container {
   display: flex;
   width: 100%; // Adjust this as necessary
-  max-width: 1450px; // Ensures the container doesn't get too wide on large screens
+  max-width: 1350px; // Ensures the container doesn't get too wide on large screens
   padding: 20px;
   box-sizing: border-box;
 }
@@ -1095,7 +1095,7 @@ p {
 }
 
 .services-container {
-  max-width: 1200px;
+  max-width: 1350px;
   width: 100%;
   margin: auto;
 }
@@ -1653,6 +1653,7 @@ i {
   width: 95%; /* Takes full width of container */
   // justify-content: space-around; /* Better space management */
   // align-items: center; /* Vertical alignment */
+  max-width: 1450px;
   background-color: $background-color;
   margin: 0 auto;
 
@@ -1744,4 +1745,19 @@ i {
 
 .seventy-width{
   width: 80%;
+}
+
+
+@media (min-width: 769px){
+  .max-container-width-desktop{
+    max-width: 1450px !important;
+  }
+
+  .container-width{
+    width: 100%;
+  }
+}
+
+.color-correction{
+  background-color: #333333;
 }
