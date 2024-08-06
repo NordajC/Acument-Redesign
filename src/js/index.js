@@ -682,9 +682,9 @@ function md_to_html(md) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  async function fetchSingleType(apiUrl, textElementId, textAttribute) {
+  async function fetchSingleType(apiUrl, textElementId, imgElementId, textAttribute, imgAttribute) {
       try {
-          const response = await fetch(apiUrl, {
+          const response = await fetch(`${apiUrl}?populate=${imgAttribute}`, {
               method: 'GET',
               headers: {
                   'Content-Type': 'application/json'
@@ -701,6 +701,16 @@ document.addEventListener("DOMContentLoaded", function () {
           // Extract the content based on the provided attribute
           const textContent = data.data.attributes ? data.data.attributes[textAttribute] : "Content not found";
           document.getElementById(textElementId).innerHTML = textContent;
+
+          if (imgElementId && imgAttribute) {
+              const imgData = data.data.attributes[imgAttribute]?.data;
+              console.log(`Image data for ${imgElementId}:`, imgData);
+
+              if (imgData && imgData.attributes && imgData.attributes.url) {
+                  const imgUrl = `https://supportive-action-24aa34bd56.media.strapiapp.com${imgData.attributes.url}`;
+                  document.getElementById(imgElementId).src = imgUrl;
+              }
+          }
       } catch (error) {
           console.error(`Error fetching ${textElementId}:`, error);
           document.getElementById(textElementId).innerHTML = '<p>Error loading content.</p>';
@@ -708,29 +718,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Fetching "Our Story" content
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', 'our_story');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', null, 'our_story', null);
 
   // Fetching Modal
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story-2', 'our_story');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story-2', null, 'our_story', null);
 
   // Fetching "Damien" content
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'damien-image', 'description', 'avatar');
 
   // Fetching "Clement" content
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'clement-image', 'description', 'avatar');
 
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/agile', 'agile-description', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/agile', 'agile-description', null, 'description', null);
 
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/available', 'available-description', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/available', 'available-description', null, 'description', null);
 
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/dedicated', 'dedicated-description', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/dedicated', 'dedicated-description', null, 'description', null);
 
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/optimization', 'optimization-description', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/optimization', 'optimization-description', null, 'description', null);
 
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/performance', 'performance-description', 'description');
-
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/performance', 'performance-description', null, 'description', null);
 });
-
 
 
 document.addEventListener("DOMContentLoaded", () => {

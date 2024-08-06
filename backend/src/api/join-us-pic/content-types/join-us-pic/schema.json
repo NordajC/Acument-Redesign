@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "join_us_pics",
+  "info": {
+    "singularName": "join-us-pic",
+    "pluralName": "join-us-pics",
+    "displayName": "Join Us Pic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -890,6 +890,36 @@ export interface ApiClementClement extends Schema.SingleType {
   };
 }
 
+export interface ApiClementImgClementImg extends Schema.SingleType {
+  collectionName: 'clement_imgs';
+  info: {
+    singularName: 'clement-img';
+    pluralName: 'clement-imgs';
+    displayName: 'Clement Img';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::clement-img.clement-img',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::clement-img.clement-img',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContentContent extends Schema.SingleType {
   collectionName: 'contents';
   info: {
@@ -949,6 +979,36 @@ export interface ApiDamienDamien extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::damien.damien',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDamienImgDamienImg extends Schema.SingleType {
+  collectionName: 'damien_imgs';
+  info: {
+    singularName: 'damien-img';
+    pluralName: 'damien-imgs';
+    displayName: 'Damien Img';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::damien-img.damien-img',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::damien-img.damien-img',
       'oneToOne',
       'admin::user'
     > &
@@ -1058,6 +1118,36 @@ export interface ApiJobJob extends Schema.CollectionType {
   };
 }
 
+export interface ApiJoinUsPicJoinUsPic extends Schema.SingleType {
+  collectionName: 'join_us_pics';
+  info: {
+    singularName: 'join-us-pic';
+    pluralName: 'join-us-pics';
+    displayName: 'Join Us Pic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Image: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::join-us-pic.join-us-pic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::join-us-pic.join-us-pic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOptimizationOptimization extends Schema.SingleType {
   collectionName: 'optimizations';
   info: {
@@ -1157,6 +1247,36 @@ export interface ApiPerformancePerformance extends Schema.SingleType {
   };
 }
 
+export interface ApiTwinDecscriptionTwinDecscription extends Schema.SingleType {
+  collectionName: 'twin_decscriptions';
+  info: {
+    singularName: 'twin-decscription';
+    pluralName: 'twin-decscriptions';
+    displayName: 'Twin Decscription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::twin-decscription.twin-decscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::twin-decscription.twin-decscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1178,14 +1298,18 @@ declare module '@strapi/types' {
       'api::agile.agile': ApiAgileAgile;
       'api::available.available': ApiAvailableAvailable;
       'api::clement.clement': ApiClementClement;
+      'api::clement-img.clement-img': ApiClementImgClementImg;
       'api::content.content': ApiContentContent;
       'api::damien.damien': ApiDamienDamien;
+      'api::damien-img.damien-img': ApiDamienImgDamienImg;
       'api::data-privacy.data-privacy': ApiDataPrivacyDataPrivacy;
       'api::dedicated.dedicated': ApiDedicatedDedicated;
       'api::job.job': ApiJobJob;
+      'api::join-us-pic.join-us-pic': ApiJoinUsPicJoinUsPic;
       'api::optimization.optimization': ApiOptimizationOptimization;
       'api::our-service.our-service': ApiOurServiceOurService;
       'api::performance.performance': ApiPerformancePerformance;
+      'api::twin-decscription.twin-decscription': ApiTwinDecscriptionTwinDecscription;
     }
   }
 }

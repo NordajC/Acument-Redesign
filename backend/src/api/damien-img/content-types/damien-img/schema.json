@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "damien_imgs",
+  "info": {
+    "singularName": "damien-img",
+    "pluralName": "damien-imgs",
+    "displayName": "Damien Img"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

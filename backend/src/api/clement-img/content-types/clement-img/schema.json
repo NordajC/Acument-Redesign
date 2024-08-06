@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "clement_imgs",
+  "info": {
+    "singularName": "clement-img",
+    "pluralName": "clement-imgs",
+    "displayName": "Clement Img"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
