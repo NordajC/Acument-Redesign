@@ -768,8 +768,10 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/clement-img', 'clement-image', 'image');
   fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/damien-img', 'damien-image', 'image');
   fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/join-us-pic', 'join-us-image', 'Image');
+  fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/twin-img', 'twin-image', 'image');
   fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/twin-decscription', 'twin-decscription', 'description');
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   AOS.init();

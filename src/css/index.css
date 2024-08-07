@@ -24594,7 +24594,7 @@ i {
 }
 
 .text-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 /*# sourceMappingURL=index.css.map */
