@@ -681,10 +681,11 @@ function md_to_html(md) {
   html;
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
-  async function fetchSingleType(apiUrl, textElementId, imgElementId, textAttribute, imgAttribute) {
+  async function fetchSingleType(apiUrl, textElementId, textAttribute) {
       try {
-          const response = await fetch(`${apiUrl}?populate=${imgAttribute}`, {
+          const response = await fetch(apiUrl, {
               method: 'GET',
               headers: {
                   'Content-Type': 'application/json'
@@ -698,48 +699,77 @@ document.addEventListener("DOMContentLoaded", function () {
           const data = await response.json();
           console.log(`Response for ${textElementId}:`, data);
 
-          // Extract the content based on the provided attribute
           const textContent = data.data.attributes ? data.data.attributes[textAttribute] : "Content not found";
           document.getElementById(textElementId).innerHTML = textContent;
-
-          if (imgElementId && imgAttribute) {
-              const imgData = data.data.attributes[imgAttribute]?.data;
-              console.log(`Image data for ${imgElementId}:`, imgData);
-
-              if (imgData && imgData.attributes && imgData.attributes.url) {
-                  const imgUrl = `https://supportive-action-24aa34bd56.media.strapiapp.com${imgData.attributes.url}`;
-                  document.getElementById(imgElementId).src = imgUrl;
-              }
-          }
       } catch (error) {
           console.error(`Error fetching ${textElementId}:`, error);
           document.getElementById(textElementId).innerHTML = '<p>Error loading content.</p>';
       }
   }
 
+  async function fetchImage(apiUrl, imgElementId, imageField = 'image') {
+      try {
+          const response = await fetch(`${apiUrl}?populate=*`, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          });
+
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log(`Image response for ${imgElementId}:`, data);
+
+          const imageUrl = extractImageUrl(data, imageField);
+          if (imageUrl) {
+              const imgElement = document.getElementById(imgElementId);
+              if (imgElement) {
+                  imgElement.src = imageUrl;
+                  imgElement.style.display = 'block';
+              } else {
+                  console.error(`Element with ID ${imgElementId} not found.`);
+              }
+          } else {
+              console.error(`Image data not found for ${imgElementId}`);
+          }
+      } catch (error) {
+          console.error(`Error fetching ${imgElementId}:`, error);
+      }
+  }
+
+  function extractImageUrl(data, imageField) {
+      try {
+          const imageData = data.data.attributes[imageField];
+          if (imageData && imageData.data && imageData.data.attributes && imageData.data.attributes.url) {
+              return imageData.data.attributes.url;
+          }
+      } catch (error) {
+          console.error('Error extracting image URL:', error);
+      }
+      return null;
+  }
+
   // Fetching "Our Story" content
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', null, 'our_story', null);
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story', 'our_story');
 
   // Fetching Modal
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story-2', null, 'our_story', null);
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/content', 'our-story-2', 'our_story');
 
   // Fetching "Damien" content
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'damien-image', 'description', 'avatar');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/damien', 'damien-content', 'description');
 
   // Fetching "Clement" content
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'clement-image', 'description', 'avatar');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'description');
 
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/agile', 'agile-description', null, 'description', null);
-
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/available', 'available-description', null, 'description', null);
-
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/dedicated', 'dedicated-description', null, 'description', null);
-
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/optimization', 'optimization-description', null, 'description', null);
-
-  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/performance', 'performance-description', null, 'description', null);
+  // Fetching images with respective field names
+  fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/clement-img', 'clement-image', 'image');
+  fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/damien-img', 'damien-image', 'image');
+  fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/join-us-pic', 'join-us-image', 'Image');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/twin-decscription', 'twin-decscription', 'description');
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
   AOS.init();

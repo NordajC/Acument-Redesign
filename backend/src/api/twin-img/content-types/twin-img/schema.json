@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "twin_imgs",
+  "info": {
+    "singularName": "twin-img",
+    "pluralName": "twin-imgs",
+    "displayName": "Twin Img"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

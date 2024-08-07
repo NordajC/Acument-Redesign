@@ -1277,6 +1277,36 @@ export interface ApiTwinDecscriptionTwinDecscription extends Schema.SingleType {
   };
 }
 
+export interface ApiTwinImgTwinImg extends Schema.SingleType {
+  collectionName: 'twin_imgs';
+  info: {
+    singularName: 'twin-img';
+    pluralName: 'twin-imgs';
+    displayName: 'Twin Img';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::twin-img.twin-img',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::twin-img.twin-img',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1310,6 +1340,7 @@ declare module '@strapi/types' {
       'api::our-service.our-service': ApiOurServiceOurService;
       'api::performance.performance': ApiPerformancePerformance;
       'api::twin-decscription.twin-decscription': ApiTwinDecscriptionTwinDecscription;
+      'api::twin-img.twin-img': ApiTwinImgTwinImg;
     }
   }
 }
