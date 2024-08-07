@@ -764,6 +764,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fetching "Clement" content
   fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/clement', 'clement-content', 'description');
 
+  //unique value 
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/agile', 'agile-description', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/available', 'available-description', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/dedicated', 'dedicated-description', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/optimization', 'optimization-description', 'description');
+  fetchSingleType('https://supportive-action-24aa34bd56.strapiapp.com/api/performance', 'performance-description', 'description');
+
   // Fetching images with respective field names
   fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/clement-img', 'clement-image', 'image');
   fetchImage('https://supportive-action-24aa34bd56.strapiapp.com/api/damien-img', 'damien-image', 'image');
